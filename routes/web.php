@@ -21,3 +21,7 @@ Route::get('/admin', function () {
     return view('Admin/index');
 })->name('inicioAdmin');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
