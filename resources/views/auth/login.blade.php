@@ -9,12 +9,10 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="/assets/css/loginStyle.css">
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/loginAssets/css/style.css">
 
 	</head>
-	<body class="img js-fullheight" style="background-image: url(assets/img/bg.jpg);">
+	<body class="img js-fullheight" style="background-image: url(assets/loginAssets/images/bg.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -25,17 +23,18 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">Have an account?</h3>
-		      	<form action="#" class="signin-form">
+		      	<h3 class="mb-4 text-center">Iniciar sesion</h3>
+		      	<form action="{{'login'}}" method="POST" class="signin-form">
+					@csrf
 		      		<div class="form-group">
-		      			<input type="text" class="form-control" placeholder="Username" required>
+		      			<input type="text" class="form-control" type="email" placeholder="Correo Electronico" name="email" required>
 		      		</div>
 	            <div class="form-group">
-	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>
+	              <input id="password-field" type="password" class="form-control" placeholder="Contrasena" name="password" required>
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
 	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Ingresar</button>
 	            </div>
 	            <div class="form-group d-md-flex">
 	            	<div class="w-50">
@@ -49,21 +48,21 @@
 								</div>
 	            </div>
 	          </form>
-	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+{{-- 	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
 	          <div class="social d-flex text-center">
 	          	<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
 	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
-	          </div>
+	          </div> --}}
 		      </div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/main.js"></script>
+	<script src="assets/loginAssets/js/jquery.min.js"></script>
+  <script src="assets/loginAssets/js/popper.js"></script>
+  <script src="assets/loginAssets/js/bootstrap.min.js"></script>
+  <script src="assets/loginAssets/js/main.js"></script>
 
 	</body>
 </html>
