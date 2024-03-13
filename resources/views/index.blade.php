@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Restaurantly Bootstrap Template - Index</title>
+  <title>Santo Pan</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -24,19 +24,24 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Restaurantly - v3.1.0
-  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
+
+  
+  <style>
+    #hero {
+      width: 100%;
+      height: 100vh;
+      background: url("{{$imagenes->img_principal}}") top center;
+      background-size: cover;
+      position: relative;
+      padding: 0;
+    }
+  </style>
 
     <!-- ======= Top Bar ======= -->
     <div id="topbar" class="d-flex align-items-center fixed-top">
@@ -100,8 +105,8 @@
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
-          <h1>Bienvenidos a <span>Santo Pan</span></h1>
-          <h2>Complaciendo al pueblo Turrialbeño</h2>
+          <h1>{{$inicio->titulo}}</h1>
+          <h2>{{$inicio->subTitulo}}</h2>
 
           <div class="btns">
             <a href="#menu" class="btn-menu animated fadeInUp scrollto">Menu</a>
@@ -126,7 +131,7 @@
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Buscamos llenar de vida a nuestra querida Turrialba</h3>
+            <h3>{{$inicio->tituloObjetivos}}</h3>
             <p class="fst-italic">
               Tenemos claro ciertos objetivos para lograr cumplir nuestra vision
             </p>
@@ -147,7 +152,7 @@
 
         <div class="section-title">
           <h2>¿Por que nosotros?</h2>
-          <p>¿Por que escogernos?</p>
+          <p>{{$inicio->tituloNosotros}}</p>
         </div>
 
         <div class="row">
@@ -188,7 +193,7 @@
 
         <div class="section-title">
           <h2>Menu</h2>
-          <p>Consulta Nuestro Sabroso Menú</p>
+          <p>{{$inicio->tituloMenu}}</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -305,7 +310,7 @@
 
         <div class="section-title">
           <h2>Especialidades</h2>
-          <p>Consulta nuestras especialidades</p>
+          <p>{{$inicio->tituloEspecialidades}}</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -400,7 +405,7 @@
 
         <div class="section-title">
           <h2>Eventos</h2>
-          <p>Eventos que hemos realizado</p>
+          <p>{{$inicio->tituloEventos}}</p>
         </div>
 
         <div class="events-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
@@ -491,7 +496,7 @@
 
         <div class="section-title">
           <h2>Reserva</h2>
-          <p>RESERVAR MESA</p>
+          <p>{{$inicio->tituloMesa}}</p>
         </div>
 
         <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
@@ -626,7 +631,7 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Galleria</h2>
-          <p>Algunas fotos de Nuestro Restaurante</p>
+          <p>{{$inicio->tituloGaleria}}</p>
         </div>
       </div>
 
@@ -709,7 +714,7 @@
 
         <div class="section-title">
           <h2>Chefs</h2>
-          <p>Nuestros Chefs Profesionales</p>
+          <p>{{$inicio->tituloChefs}}</p>
         </div>
 
         <div class="row">
@@ -779,7 +784,7 @@
 
         <div class="section-title">
           <h2>CONTACTO</h2>
-          <p>Contactenos</p>
+          <p>{{$inicio->tituloContacto}}</p>
         </div>
       </div>
 
@@ -796,28 +801,27 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Localización:</h4>
-                <p>Cartago, Turrialba, Frente las vias de tren</p>
+                <p>{{$inicio->localizacion}}</p>
               </div>
 
               <div class="open-hours">
                 <i class="bi bi-clock"></i>
                 <h4>Horario</h4>
                 <p>
-                  Lunes-Sabados:<br>
-                  11:00 AM - 8:00 PM
+                  {{$inicio->horario}}
                 </p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>{{$inicio->correo_electronico}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Telefono:</h4>
-                <p>+506 8080 5544</p>
+                <p>{{$inicio->telefono}}</p>
               </div>
 
             </div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\imagenes_inicio;
+use App\Models\Inicio;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('Admin.index');
+        $inicio = Inicio::findOrFail(1);
+        $imagenPrincipal = imagenes_inicio::findOrFail(1);
+        return view('Admin.index', compact('inicio', 'imagenPrincipal'));
     }
 }

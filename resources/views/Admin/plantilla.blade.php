@@ -83,21 +83,57 @@
 
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
+             
+                <li class="nav-item">
+                    <div class="dropdown-center">
+                        <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Personalizar Inicio
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <div class="container">
+
+                            <li class="nav-item">
+                                <a class="dropdown-item nav-link text-white " href="{{route('home')}}">
+            
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                    </div>
+            
+                                    <span class="nav-link-text ms-1">Vista principal</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="dropdown-item nav-link text-white " href="{{route('objetivos')}}">
+            
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                    </div>
+            
+                                    <span class="nav-link-text ms-1">Seccion Objetivos</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="dropdown-item nav-link text-white " href="{{route('nosotros')}}">
+            
+                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                    </div>
+            
+                                    <span class="nav-link-text ms-1">Seccion Nosotros</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </li>
 
                 <!-- Split dropright button -->
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="">
 
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-
-                        <span class="nav-link-text ms-1">Inicio</span>
-                    </a>
-                </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="">
+                    <a class="nav-link text-white " href="{{route('menu')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-mug-saucer"></i>
@@ -108,7 +144,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="">
+                    <a class="nav-link text-white " href="{{route('reservaciones')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-regular fa-address-book"></i>
@@ -146,17 +182,6 @@
                 @endforeach --}}
 
 
-
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="">
-
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-hand-holding-dollar"></i>
-                        </div>
-
-                        <span class="nav-link-text ms-1">Servcios</span>
-                    </a>
-                </li>
 
             </ul>
         </div>

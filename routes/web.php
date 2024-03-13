@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\pagesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,14 +15,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',[pagesController::class, 'index'])->name('inicio');
 
-Route::get('/', function () {
-    return view('index');
-});
+//////Admin/////
+Route::get('/menu',[pagesController::class, 'indexMenu'])->name('menu');
+Route::get('/reservaciones',[pagesController::class, 'indexReservaciones'])->name('reservaciones');
+Route::get('/objetivos',[pagesController::class, 'indexObjetivos'])->name('objetivos');
+Route::get('/nosotros',[pagesController::class, 'indexNosotros'])->name('nosotros');
 
-Route::get('/admin', function () {
-    return view('Admin/index');
-})->name('inicioAdmin');
+////updatesInicio////
+Route::put('/update_inicio',[InicioController::class, 'updateInicio'])->name('updateInicio');
+
 
 
 Auth::routes();
