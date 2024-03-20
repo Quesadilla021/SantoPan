@@ -3,13 +3,16 @@
 @section('contenido')
     <div class="container">
 
+        <form action="{{route('upInNosotros')}}" method="POST">
+            @method('PUT')
+            @csrf
         <div class="row mb-4">
             <div class="col-lg-12 position-relative z-index-2">
                 <div class="card card-plain mb-4">
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
                         <h2 class="font-weight-bolder mb-0">Personalizar Nosotros</h2>
                         <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                            <button class="btn btn-success">Guardar cambios</button>
+                            <button type="submit" class="btn btn-success">Guardar cambios</button>
                         </div>
 
                     </div>
@@ -17,8 +20,6 @@
             </div>
         </div>
 
-        <form action="{{-- {{ route('admin.store') }} --}}" method="POST">
-            @csrf
 
 
             <div class="card">
@@ -32,20 +33,23 @@
 
                     <div id="formulario">
                         <label for="Titulo">Titulo Nosotros:</label>
-                        <input class="form-control" type="text" name="tituloNosotros">
-
-                        <label for="Titulo">Descripcion</label>
-                        <textarea name="descripcionNosotros" class="form-control" type="text" rows="10" cols="50"></textarea>
-
+                        <input class="form-control" type="text" name="tituloNosotros" value="{{$inicio->tituloNosotros}}">
                         <hr>
+                    </form>
 
+                    <form action="{{route('agregarMision')}}" method="POST">
+                        @csrf
+                        <label for="Titulo">Nueva mision</label>
                         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-                            <label for="Titulo">Mision Nueva:</label>
-                            <input class="form-control" type="text" name="objetivo">
-                            <form action="">
-                                <button class="btn btn-success mt-3" style="order: 2;">+</button>
-                            </form>
+                            <label for="Titulo">Titulo:</label>
+                            <input class="form-control" type="text" name="tituloMision">
                         </div>
+                        
+                        <label for="Titulo">Descripcion:</label>
+                        <textarea name="descripcionMision" class="form-control" type="text" rows="10" cols="50"></textarea>
+                        
+                        <button type="submit" class="btn btn-success mt-4">Agregar</button>
+                    </form>
 
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
@@ -57,16 +61,25 @@
                                                 Mision</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Descripcion</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Acciones</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($servicios as $item) --}}
+                                        @foreach ($misiones as $item)
                                         <tr>
                                             <td>
                                                 <div class="align-middle text-center text-sm">
-                                                    <h6 class="mb-0 text-sm">Un obndoi andoian dcads</h6>
+                                                    <h6 class="mb-0 text-sm">{{$item->titulo}}</h6>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="align-middle text-center text-sm">
+                                                    <h6 class="mb-0 text-sm">{{$item->descripcion}}</h6>
                                                 </div>
                                             </td>
 
@@ -74,10 +87,6 @@
 
                                                 <a href="{{-- {{route('editarServicio',$item->id_servicio)}} --}}" class="btn btn-outline-warning"><i
                                                         class="fa-regular fa-pen-to-square"></i></a>
-
-                                                {{-- Cargar en otra pagina la landing para mostrar la modal --}}
-                                                <a class="btn btn-outline-primary mx-1"><i
-                                                        class="fa-regular fa-eye"></i></a>
 
                                                 <form action="{{-- {{ route('servicio.destroy', $item->id_servicio) }} --}}" method="POST">
                                                     @csrf
@@ -87,16 +96,12 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                        {{--                                         @endforeach
- --}}
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-        </form>
     @endsection

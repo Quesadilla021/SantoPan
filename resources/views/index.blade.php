@@ -41,6 +41,13 @@
       position: relative;
       padding: 0;
     }
+
+    .about {
+      background: url("{{$imagenes->img_fondo_objetivo}}") center center;
+      background-size: cover;
+      position: relative;
+      padding: 80px 0;
+    }
   </style>
 
     <!-- ======= Top Bar ======= -->
@@ -48,8 +55,8 @@
       <div class="container d-flex justify-content-center justify-content-md-between">
   
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-phone d-flex align-items-center"><span>+596 8080 5544</span></i>
-          <i class="bi bi-clock d-flex align-items-center ms-4"><span> Lunes-Sabado: 11AM - 8PM</span></i>
+          <i class="bi bi-phone d-flex align-items-center"><span>{{$inicio->telefono}}</span></i>
+          <i class="bi bi-clock d-flex align-items-center ms-4"><span>{{$inicio->horario}}</span></i>
         </div>
   
       </div>
@@ -127,7 +134,7 @@
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
-              <img src="assets/img/fondo5.jpg" alt="">
+              <img src="{{$imagenes->img_objetivo}}" alt="" width="100%">
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
@@ -136,9 +143,11 @@
               Tenemos claro ciertos objetivos para lograr cumplir nuestra vision
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Ofrecer ingredientes frescos y de temporada, la preparación de platos innovadores y la creación de un ambiente acogedor y agradable.</li>
-              <li><i class="bi bi-check-circle"></i> Presentar un personal amable, eficiente y atento a las necesidades de los clientes.</li>
-              <li><i class="bi bi-check-circle"></i> Presentar en alto la cultura Turrialbeña con nuestra variedad de decoraciones y comidas</li>
+              @foreach ($objetivos as $item)
+              
+              <li><i class="bi bi-check-circle"></i>{{$item->objetivo}}</li>
+
+              @endforeach
             </ul>
           </div>
         </div>
@@ -157,30 +166,16 @@
 
         <div class="row">
 
+          @foreach ($nosotros as $item) {{-- Mantener tamano para los cuadros tal vez --}}
+              
           <div class="col-lg-4">
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
               <span>01</span>
-              <h4>El mejor café de la ciudad</h4>
-              <p>¿Buscas el mejor café de la ciudad? Entonces no busques más, ¡ven a Santo Pan! Utilizamos granos de café de la más alta calidad, tostados a mano en nuestras instalaciones. Nuestros baristas están altamente cualificados y te prepararán el café perfecto para tu gusto.</p>
+              <h4>{{$item->titulo}}</h4>
+              <p>{{$item->descripcion}}</p>
             </div>
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="200">
-              <span>02</span>
-              <h4>Un lugar para relajarse y disfrutar</h4>
-              <p>¿Buscas un lugar para relajarte y disfrutar de una buena taza de café? En Santo Pan es el lugar perfecto para ti. Nuestra cafetería cuenta con un ambiente acogedor y tranquilo, perfecto para desconectar del estrés del día a día.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <span>03</span>
-              <h4>Un lugar para los amantes del café</h4>
-              <p>Nuestros baristas están altamente cualificados y te prepararán el café perfecto para tu gusto. Además, ofrecemos una amplia variedad de talleres y eventos relacionados con el café, para que aprendas más sobre este apasionante mundo.
-              </p>
-            </div>
-          </div>
+          @endforeach
 
         </div>
 
@@ -203,6 +198,7 @@
               <li data-filter=".filter-starters">Entrantes</li>
               <li data-filter=".filter-salads">Ensaladas</li>
               <li data-filter=".filter-specialty">Especialidad</li>
+              <li data-filter=".filter-prueba">Prueba</li>
             </ul>
           </div>
         </div>
@@ -293,6 +289,28 @@
             <img src="assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
             <div class="menu-content">
               <a href="#">Lobster Roll</a><span>$12.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-6 menu-item filter-prueba">
+            <img src="assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">AAAAAAAAAAAAAAAA</a><span>$12.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-prueba">
+            <img src="assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">AAAAAAAAAAAAAAAA</a><span>$12.95</span>
             </div>
             <div class="menu-ingredients">
               Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
