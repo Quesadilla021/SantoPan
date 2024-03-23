@@ -6,6 +6,7 @@ use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ObjetivoController;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\PlatillosController;
+use App\Http\Controllers\ReservacionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,14 @@ Route::get('/menu',[pagesController::class, 'indexMenu'])->name('menu');
 Route::get('/categorias',[pagesController::class, 'indexCategorias'])->name('categorias');
 Route::post('/agregarCategoria',[CatecoriaController::class, 'storeCategoria'])->name('agregarCategoria');
 Route::post('/agregarPlatillo',[PlatillosController::class, 'storePlatillo'])->name('agregarPlatillo');
+Route::get('/editPlatillo_{id}',[PlatillosController::class, 'editPlatillo'])->name('editarPlatillo');
+Route::put('/update/platillo/{id}',[PlatillosController::class, 'updatePlatillo'])->name('upPlatillo');
+Route::delete('/delete/platillo/{id}',[PlatillosController::class, 'destroyPlatillo'])->name('destroyPlatillo');
+
+////Menu////
+Route::post('/agregarReservacion',[ReservacionController::class, 'storeReservacion'])->name('agregarReservacion');
+Route::get('/verSolicitud_{id}',[ReservacionController::class, 'verSolicitud'])->name('verSolicitud');
+
 
 
 

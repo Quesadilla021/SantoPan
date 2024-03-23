@@ -8,6 +8,7 @@ use App\Models\Inicio;
 use App\Models\Nosotros;
 use App\Models\Objetivo;
 use App\Models\Platillo;
+use App\Models\Reservaciones;
 use Illuminate\Http\Request;
 
 class pagesController extends Controller
@@ -17,7 +18,9 @@ class pagesController extends Controller
         $imagenes = imagenes_inicio::findOrFail(1);
         $objetivos = Objetivo::all();
         $nosotros = Nosotros::all();
-        return view('index', compact('inicio', 'imagenes', 'objetivos', 'nosotros'));
+        $platillos = Platillo::all();
+        $categorias = Categoria::all();
+        return view('index', compact('inicio', 'imagenes', 'objetivos', 'nosotros', 'platillos', 'categorias'));
     }
 
     ////////Admin///////
@@ -28,7 +31,8 @@ class pagesController extends Controller
     }
 
     function indexReservaciones(){
-        return view('Admin.Reservaciones.reservaciones');
+        $reservaciones = Reservaciones::all();
+        return view('Admin.Reservaciones.reservaciones', compact('reservaciones'));
     }
 
     function indexObjetivos(){
@@ -47,7 +51,6 @@ class pagesController extends Controller
     function indexCategorias() {
         $categorias = Categoria::all();
         return view('Admin.Menu.categorias', compact('categorias'));
-
-        
     }
+    
 }

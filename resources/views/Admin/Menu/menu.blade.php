@@ -7,7 +7,7 @@
             <div class="col-lg-12 position-relative z-index-2">
                 <div class="card card-plain mb-4">
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
-                        <h2 class="font-weight-bolder mb-0">Menu -Agregar datatable-</h2>
+                        <h2 class="font-weight-bolder mb-0">Menu</h2>
                         <div class="d-flex justify-content-center mt-4" style="order: 2;">
                             <a href="{{route('categorias')}}" class="btn btn-success">Categorias</a>
                         </div>
@@ -90,11 +90,11 @@
                             <table id="tabla_platillos" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>Platillo</th>
-                                        <th>Detalles</th>
-                                        <th>Categoria</th>
-                                        <th>Precio</th>
-                                        <th>Acciones</th>
+                                        <th class="text-center" >Platillo</th>
+                                        {{-- <th class="text-center" >Detalles</th> --}}
+                                        <th class="text-center" >Categoria</th>
+                                        <th class="text-center" >Precio</th>
+                                        <th class="text-center" >Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -102,16 +102,16 @@
                                     @foreach ($platillos as $item)
                                         
                                     <tr>
-                                        <td>{{$item->nombre}}</td>
-                                        <td>{{$item->detalles}}</td>
-                                        <td>{{$item->categoria->nombre}}</td>
-                                        <td>{{$item->precio}}</td>
+                                        <td class="text-center">{{$item->nombre}}</td>
+                                        {{-- <td class="text-center">{{$item->detalles}}</td> --}}
+                                        <td class="text-center">{{$item->categoria->nombre}}</td>
+                                        <td class="text-center">₡ {{number_format($item->precio, 0,',', '.')}}</td>
                                         <td class="d-flex justify-content-center align-middle text-center text-sm">
 
-                                            <a href="{{-- {{route('editarServicio',$item->id_servicio)}} --}}" class="btn btn-outline-warning"><i
+                                            <a href="{{route('editarPlatillo',$item->id_platillo)}}" class="btn btn-outline-warning"><i
                                                     class="fa-regular fa-pen-to-square"></i></a>
 
-                                            <form action="{{-- {{ route('servicio.destroy', $item->id_servicio) }} --}}" method="POST">
+                                            <form action="{{ route('destroyPlatillo', $item->id_platillo) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger"><i
