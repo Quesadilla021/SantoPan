@@ -35,7 +35,6 @@
                     <thead>
                         <tr>
                             <th class="text-center" >Nombre Completo</th>
-                            <th class="text-center" >Correo Electronico</th>
                             <th class="text-center" >Telefono</th>
                                 {{-- FECHA DE SOLICITUD Y OTRA FECHA DE RECIBIDO --}}
 
@@ -53,7 +52,6 @@
                             
                         <tr>
                             <td class="text-center">{{$item->nombre}}</td>
-                            <td class="text-center">{{$item->correo_electronico}}</td>
                             <td class="text-center">{{$item->telefono}}</td>
                             <td class="text-center">{{$item->fecha}}</td>
                             <td class="text-center">{{$item->num_personas}}</td>

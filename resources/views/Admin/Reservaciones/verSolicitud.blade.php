@@ -19,9 +19,6 @@
         <div class="row d-flex justify-content-center">
 
             <div class="col-6"> {{-- ENVIAR CORREO DESDE AQUI --}}'
-                <form action="{{-- {{route('upPlatillo', $platillo->id_platillo)}} --}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3">
@@ -33,9 +30,6 @@
                             <div id="formulario">
                                 <label>Nombre Completo</label>
                                 <input class="form-control" type="text"  value="{{$reservacion->nombre}}" disabled>
-
-                                <label>Correo Electronico</label>
-                                <input class="form-control" type="email"  value="{{$reservacion->correo_electronico}}" disabled>
                                 
                                 <label>Telefono</label>
                                 <input class="form-control" type="text"  value="{{$reservacion->telefono}}" disabled>
@@ -53,18 +47,37 @@
                                 <label for="Titulo">Mensaje</label>
                                 <textarea class="form-control" type="text" rows="10" cols="50" disabled>{{$reservacion->mensaje}}</textarea>
 
+                                @if ($reservacion->estado == 'Pendiente')
                                 <div class="container text-center">
-                                    <button type="submit" class="btn btn-success mt-4">Aceptar Solicitud</button>
-                                    <button type="submit" class="btn btn-danger mt-4">Rechazar Solicitud</button>
-                                </div>
 
+                                        <form action="{{route('solicitudAprobada', $reservacion->id_reservacion)}}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-success mt-4">Aceptar Solicitud</button>
+
+                                        </form>
+
+                                        <form action="{{route('solicitudRechazada', $reservacion->id_reservacion)}}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" class="btn btn-danger mt-1">Rechazar Solicitud</button>
+
+                                        </form>
+                                </div>
+                                @else
+                                <div class="container text-center mt-3">
+                                    <h4>Esta solicitud ya fue contestada</h4>
+                                </div>
+                                @endif
+
+                                
 
                             </div>
                         </div>
                     </div>
-                </form>
-
             </div>
+
+            
 
 
             {{-- Tabla Cargar Datos --}}

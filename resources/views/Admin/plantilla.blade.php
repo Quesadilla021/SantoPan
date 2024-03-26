@@ -404,6 +404,9 @@
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <script > new DataTable('#tabla_platillos');</script>
 
     <script>
@@ -414,6 +417,22 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
+
+        function platilloAgregado() {
+        Swal.fire(
+        '¡Platillo Agregado!',
+        'En breves notara los cambios',
+        'success'
+    )
+    }
+
+    function platilloActualizado() {
+        Swal.fire(
+        '¡Platillo Actualizado!',
+        'En breves notara los cambios',
+        'success'
+    )
+    }
     </script>
 
     <!-- Github buttons -->

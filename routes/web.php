@@ -49,9 +49,11 @@ Route::get('/editPlatillo_{id}',[PlatillosController::class, 'editPlatillo'])->n
 Route::put('/update/platillo/{id}',[PlatillosController::class, 'updatePlatillo'])->name('upPlatillo');
 Route::delete('/delete/platillo/{id}',[PlatillosController::class, 'destroyPlatillo'])->name('destroyPlatillo');
 
-////Menu////
+////Reservaciones////
 Route::post('/agregarReservacion',[ReservacionController::class, 'storeReservacion'])->name('agregarReservacion');
 Route::get('/verSolicitud_{id}',[ReservacionController::class, 'verSolicitud'])->name('verSolicitud');
+Route::put('/solicitud_rechazada_{id}',[ReservacionController::class, 'rechazarSoli'])->name('solicitudRechazada');
+Route::put('/solicitud_aprobada_{id}',[ReservacionController::class, 'aprobarSoli'])->name('solicitudAprobada');
 
 
 

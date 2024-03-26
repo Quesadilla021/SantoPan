@@ -63,7 +63,7 @@
                                     <img id="img" src="" alt="Vista previa de la imagen" width="100%">
                                 </div>
 
-                                <button type="submit" class="btn btn-success mt-4">Agregar</button>
+                                <button type="submit" class="btn btn-success mt-4" onclick="platilloAgregado()">Agregar</button>
 
                             </div>
                         </div>
