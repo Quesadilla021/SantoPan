@@ -83,52 +83,7 @@
 
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-             
-                <li class="nav-item">
-                    <div class="dropdown-center">
-                        <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        Personalizar Inicio
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <div class="container">
-
-                            <li class="nav-item">
-                                <a class="dropdown-item nav-link text-white " href="{{route('home')}}">
             
-                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="fa-solid fa-layer-group"></i>
-                                    </div>
-            
-                                    <span class="nav-link-text ms-1">Vista principal</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="dropdown-item nav-link text-white " href="{{route('objetivos')}}">
-            
-                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="fa-solid fa-layer-group"></i>
-                                    </div>
-            
-                                    <span class="nav-link-text ms-1">Seccion Objetivos</span>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="dropdown-item nav-link text-white " href="{{route('nosotros')}}">
-            
-                                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                        <i class="fa-solid fa-layer-group"></i>
-                                    </div>
-            
-                                    <span class="nav-link-text ms-1">Seccion Nosotros</span>
-                                </a>
-                            </li>
-                        </div>
-                    </ul>
-                </div>
-            </li>
-
                 <!-- Split dropright button -->
 
 
@@ -165,23 +120,42 @@
                     </a>
                 </li>
 
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Personalizar Inicio</h6>
+                  </li>
 
-                {{-- Foreach de las agrupaciones --}}
-{{--                 @foreach ($agrupaciones as $item)
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('vistaAgrupacion', $item) }}"
-                            style="margin-left: 20%;">
+                  <li class="nav-item">
+                    <a class="dropdown-item nav-link text-white " href="{{route('inicio')}}">
 
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </div>
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
 
-                            <span class="nav-link-text ms-1">{{ $item->nombre }}</span>
-                        </a>
-                    </li>
-                @endforeach --}}
+                        <span class="nav-link-text ms-1">Vista principal</span>
+                    </a>
+                  </li>
 
+                <li class="nav-item">
+                    <a class="dropdown-item nav-link text-white " href="{{route('objetivos')}}">
 
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Seccion Objetivos</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="dropdown-item nav-link text-white " href="{{route('nosotros')}}">
+
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Seccion Nosotros</span>
+                    </a>
+                </li>
 
             </ul>
         </div>
@@ -196,7 +170,7 @@
             data-scroll="true">
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
-                    <h3 class="font-weight-bolder mb-0">Administración Pagina Web</h3>
+                    <h3 class="font-weight-bolder mb-0">Administración Santo Pan</h3>
 
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -433,6 +407,40 @@
         'success'
     )
     }
+
+    function ObjetivoNuevo() {
+        Swal.fire(
+        '¡Objetivo Agregado!',
+        'En breves notara los cambios',
+        'success'
+    )
+    }
+
+    function ObjetivoEliminado() {
+        Swal.fire(
+        '¡Objetivo Eliminado!',
+        'En breves notara los cambios',
+        'success'
+    )
+    }
+
+    
+    function CambiosRealizado() {
+        Swal.fire(
+        '¡Cambios Realizados!',
+        'En breves notara los cambios en la pagina principal',
+        'success'
+    )
+    }
+
+    function MisionAgregada() {
+        Swal.fire(
+        'Mision Agregada!',
+        'En breves notara los cambios',
+        'success'
+    )
+    }
+
     </script>
 
     <!-- Github buttons -->

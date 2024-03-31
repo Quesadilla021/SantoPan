@@ -24,6 +24,12 @@ class pagesController extends Controller
     }
 
     ////////Admin///////
+    function indexInicio(){
+        $inicio = Inicio::findOrFail(1);
+        $imagenPrincipal = imagenes_inicio::findOrFail(1);
+        return view('Admin.Personalizar_inicio.inicio', compact('inicio', 'imagenPrincipal'));
+    }
+
     function indexMenu() {
         $platillos = Platillo::all();
         $categorias = Categoria::all();

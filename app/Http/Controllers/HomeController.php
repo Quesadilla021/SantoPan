@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $inicio = Inicio::findOrFail(1);
-        $imagenPrincipal = imagenes_inicio::findOrFail(1);
-        return view('Admin.index', compact('inicio', 'imagenPrincipal'));
+        return redirect()->route('menu');
+
     }
 }

@@ -26,6 +26,7 @@ Route::get('/',[pagesController::class, 'index'])->name('inicio');
 Route::get('/reservaciones',[pagesController::class, 'indexReservaciones'])->name('reservaciones');
 Route::get('/objetivos',[pagesController::class, 'indexObjetivos'])->name('objetivos');
 Route::get('/nosotros',[pagesController::class, 'indexNosotros'])->name('nosotros');
+Route::get('/inicio',[pagesController::class, 'indexInicio'])->name('inicio');
 
 ////updatesInicio////
 Route::put('/update_inicio',[InicioController::class, 'updateInicio'])->name('updateInicio');
@@ -34,11 +35,11 @@ Route::put('/update_inicio',[InicioController::class, 'updateInicio'])->name('up
 ////Objetivos////
 Route::post('/agregarObjetivo',[ObjetivoController::class, 'storeObjetivo'])->name('agregarObjetivo');
 Route::put('/update/inicio_objetivo',[ObjetivoController::class, 'updateInicioObjetivo'])->name('upInObjetivo');
+Route::delete('/delete/objetivo/{id}',[ObjetivoController::class, 'destroyObjetivo'])->name('destroyObjetivo');
 
-////Objetivos////
+////Nosotros////
 Route::post('/agregarMision',[NosotrosController::class, 'storeMision'])->name('agregarMision');
 Route::put('/update/inicio_Nosotros',[NosotrosController::class, 'updateInicioNosotros'])->name('upInNosotros');
-
 
 ////Menu////
 Route::get('/menu',[pagesController::class, 'indexMenu'])->name('menu');

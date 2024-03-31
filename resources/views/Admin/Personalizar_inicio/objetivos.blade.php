@@ -12,7 +12,7 @@
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <h2 class="font-weight-bolder mb-0">Personalizar Objetivos</h2>
                             <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                                <button type="submit" class="btn btn-success">Guardar cambios</button>
+                                <button type="submit" class="btn btn-success" onclick="CambiosRealizado()">Guardar cambios</button>
                             </div>
 
                         </div>
@@ -86,8 +86,8 @@
 
                             <label for="Titulo">Objetivo nuevo:</label>
                             @csrf
-                            <input class="form-control" type="text" name="objetivo" style="order: 1;">
-                            <button type="submit" class="btn btn-success mt-3" style="order: 2;">+</button>
+                            <input class="form-control" type="text" name="objetivo" style="order: 1;" required>
+                            <button type="submit" class="btn btn-success mt-3" style="order: 2;" onclick="ObjetivoNuevo()">+</button>
                         </div>
 
                     </form>
@@ -118,14 +118,11 @@
 
                                         <td class="d-flex justify-content-center align-middle text-center text-sm">
 
-                                            <a href="{{-- {{route('editarServicio',$item->id_servicio)}} --}}" class="btn btn-outline-warning"><i
-                                                    class="fa-regular fa-pen-to-square"></i></a>
-
-                                            <form action="{{-- {{ route('servicio.destroy', $item->id_servicio) }} --}}" method="POST">
+                                            <form action="{{ route('destroyObjetivo', $item->id_objetivo) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger"><i
-                                                        class="fa-regular fa-trash-can"></i></button>
+                                                        class="fa-regular fa-trash-can" onclick="ObjetivoEliminado()"></i></button>
                                             </form>
                                         </td>
                                     </tr>

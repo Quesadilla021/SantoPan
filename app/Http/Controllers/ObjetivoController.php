@@ -40,4 +40,11 @@ class ObjetivoController extends Controller
 
         return back();  
     }
+
+    function destroyObjetivo($id){
+        $objetivo = Objetivo::findOrFail($id);
+        $objetivo->delete();
+
+        return back();
+    }
 }

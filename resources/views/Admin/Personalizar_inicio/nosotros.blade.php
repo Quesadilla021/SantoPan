@@ -12,7 +12,7 @@
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
                         <h2 class="font-weight-bolder mb-0">Personalizar Nosotros</h2>
                         <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                            <button type="submit" class="btn btn-success">Guardar cambios</button>
+                            <button type="submit" class="btn btn-success" onclick="CambiosRealizado()">Guardar cambios</button>
                         </div>
 
                     </div>
@@ -42,13 +42,13 @@
                         <label for="Titulo">Nueva mision</label>
                         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
                             <label for="Titulo">Titulo:</label>
-                            <input class="form-control" type="text" name="tituloMision">
+                            <input class="form-control" type="text" name="tituloMision" required>
                         </div>
                         
                         <label for="Titulo">Descripcion:</label>
-                        <textarea name="descripcionMision" class="form-control" type="text" rows="10" cols="50"></textarea>
+                        <textarea name="descripcionMision" class="form-control" type="text" rows="10" cols="50" required></textarea>
                         
-                        <button type="submit" class="btn btn-success mt-4">Agregar</button>
+                        <button type="submit" class="btn btn-success mt-4" onclick="MisionAgregada()">Agregar</button>
                     </form>
 
                         <div class="card-body px-0 pb-2">
