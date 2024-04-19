@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Evento;
 use App\Models\imagenes_inicio;
 use App\Models\Inicio;
 use App\Models\Nosotros;
@@ -20,7 +21,8 @@ class pagesController extends Controller
         $nosotros = Nosotros::all();
         $platillos = Platillo::all();
         $categorias = Categoria::all();
-        return view('index', compact('inicio', 'imagenes', 'objetivos', 'nosotros', 'platillos', 'categorias'));
+        $eventos = Evento::all();
+        return view('index', compact('inicio', 'imagenes', 'objetivos', 'nosotros', 'platillos', 'categorias', 'eventos'));
     }
 
     ////////Admin///////
@@ -53,10 +55,20 @@ class pagesController extends Controller
         $misiones = Nosotros::all();
         return view('Admin.Personalizar_inicio.nosotros', compact('inicio', 'misiones'));
     }
+ 
+    function indexEventos(){
+        $inicio = Inicio::findOrFail(1);
+        $eventos = Evento::all();
+        return view('Admin.Personalizar_inicio.eventos', compact('inicio', 'eventos'));
+    }
 
     function indexCategorias() {
         $categorias = Categoria::all();
         return view('Admin.Menu.categorias', compact('categorias'));
+    }
+
+    function indexUbicacion(){
+        return view('Admin.Ubicaciones.ubicaciones', compact('categorias'));
     }
     
 }

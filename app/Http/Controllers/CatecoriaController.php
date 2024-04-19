@@ -16,4 +16,12 @@ class CatecoriaController extends Controller
 
         return back();
     }
+
+    function destroyCategoria($id){
+        $categoria = Categoria::findOrFail($id);
+
+        $categoria->delete();
+
+        return back();
+    }
 }

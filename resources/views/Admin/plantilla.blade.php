@@ -74,21 +74,26 @@
                 aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
                 target="_blank">
-                <img src="./assets/img/logo1.png" class="navbar-brand-img" style="height: 100%; width: 100%" alt="main_logo">
+                <img src="./assets/img/logoblancotemp.png" class="navbar-brand-img" style="height: 100%; width: 100%" alt="main_logo">
             </a>
         </div>
 
 
         <hr class="horizontal light mt-0 mb-2">
 
+
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mt-6">
             
                 <!-- Split dropright button -->
 
+                
+        <li class="nav-item mt-3">
+            <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Administrar</h6>
+          </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="{{route('menu')}}">
+                    <a class="nav-link text-white" href="{{route('menu')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-mug-saucer"></i>
@@ -110,6 +115,17 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link text-white " href="{{route('ubicaciones')}}">
+
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Ubicaciones</span>
+                    </a>
+                </li>
+
+{{--                 <li class="nav-item">
                     <a class="nav-link text-white " href="">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -118,10 +134,10 @@
 
                         <span class="nav-link-text ms-1">Usuarios</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Personalizar Inicio</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Personalizar</h6>
                   </li>
 
                   <li class="nav-item">
@@ -157,6 +173,17 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="dropdown-item nav-link text-white " href="{{route('eventos')}}">
+
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Seccion Eventos</span>
+                    </a>
+                </li>
+                
             </ul>
         </div>
 
@@ -435,10 +462,65 @@
 
     function MisionAgregada() {
         Swal.fire(
-        'Mision Agregada!',
+        '¡Mision Agregada!',
         'En breves notara los cambios',
         'success'
     )
+    }
+
+    function CategoriaAgregada() {
+        Swal.fire(
+        '¡Categoria Agregada!',
+        'En breves notara los cambios',
+        'success'
+    )
+    }
+
+    function EliminarCategoria(ev) {
+         Swal.fire({
+            title: 'Eliminar categoria',
+            text: "Al eliminarla se eliminaran todos los platillos con esta categoria",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Terminar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                'Se elimino correctatemente',
+                'En breves notara los cambios',
+                'success'
+                )
+                setTimeout( function() { window.location.href = "{{route('destroyCategoria', "+id+")}}"; }, 2000 );
+            }
+         })
+        }
+
+        function confirmation(ev) {
+        ev.preventDefault();
+        var urlToRedirect = ev.currentTarget.getAttribute('href');  
+        console.log(urlToRedirect); 
+        swal({
+            title: "Are you sure to Delete this post",
+            text: "You will not be able to revert this!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willCancel) => {
+            if (willCancel) {
+
+
+                 
+                window.location.href = urlToRedirect;
+               
+            }  
+
+
+        });
+
+        
     }
 
     </script>

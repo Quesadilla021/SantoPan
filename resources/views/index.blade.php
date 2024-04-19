@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Santo Pan</title>
+  <title>Santo Pan | Cafeteria & Panaderia</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,6 +26,8 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -48,6 +50,88 @@
       position: relative;
       padding: 80px 0;
     }
+
+    .btn-wsp{
+    position:fixed;
+    width:60px;
+    height:60px;
+    line-height: 63px;
+    bottom:25px;
+    left:25px;
+    background:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:35px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+    z-index:100;
+    transition: all 300ms ease;
+}
+.btn-wsp:hover{
+    background: #20ba5a;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+    .btn-wsp{
+        width:63px;
+        height:63px;
+        line-height: 66px;
+	}
+}
+
+.btn-face{
+    position:fixed;
+    width:60px;
+    height:60px;
+    line-height: 63px;
+    bottom:95px;
+    left:25px;
+    background:#2576d3;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:35px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+    z-index:100;
+    transition: all 300ms ease;
+}
+.btn-face:hover{
+    background: #1d388f;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+    .btn-face{
+        width:63px;
+        height:63px;
+        line-height: 66px;
+	}
+}
+
+.btn-insta{
+    position:fixed;
+    width:60px;
+    height:60px;
+    line-height: 63px;
+    bottom:165px;
+    left:25px;
+    background:#dc34e2;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:35px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+    z-index:100;
+    transition: all 300ms ease;
+}
+.btn-insta:hover{
+    background: #5e1870;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+    .btn-insta{
+        width:63px;
+        height:63px;
+        line-height: 66px;
+	}
+}
+
   </style>
 
     <!-- ======= Top Bar ======= -->
@@ -73,10 +157,10 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto" href="#events">Eventos</a></li>
           <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#specials">Especialidades</a></li>
-          <li><a class="nav-link scrollto" href="#events">Eventos</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Galeria</a></li>
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -106,13 +190,25 @@
   </header><!-- End Header -->
 
 
+  <a href="https://api.whatsapp.com/send?phone={{$inicio->telefono}}" class="btn-wsp" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://www.facebook.com/bySantoPan" class="btn-face" target="_blank">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+
+  <a href="https://www.instagram.com/santopan_turrialba/" class="btn-insta" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
-          <h1>{{$inicio->titulo}}</h1>
+          <h1 style="color: #cda45e">{{$inicio->titulo}}</h1>
           <h2>{{$inicio->subTitulo}}</h2>
 
           <div class="btns">
@@ -125,6 +221,42 @@
     </div>
   </section><!-- End Hero -->
 
+      <!-- ======= Events Section ======= -->
+      <section id="events" class="events">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Eventos</h2>
+            <p>{{$inicio->tituloEventos}}</p>
+          </div>
+  
+          <div class="events-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+            @foreach ($eventos as $item)
+                
+              <div class="swiper-slide">
+                <div class="row event-item">
+                  <div class="col-lg-6">
+                    <img src="{{$item->imagen}}" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-lg-6 pt-4 pt-lg-0 content">
+                    <h3>{{$item->nombre}}</h3>
+                    <h4>{{$item->fecha}}</h4>
+                    <p class="fst-italic">
+                      {{$item->descripcion}}
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+              @endforeach
+  
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+  
+        </div>
+      </section><!-- End Events Section -->
+
   <main id="main">
 
     <!-- ======= About Section ======= -->
@@ -134,7 +266,7 @@
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
-              <img src="{{$imagenes->img_objetivo}}" alt="" width="100%">
+              <img src="{{$imagenes->img_objetivo}}" alt="" width="100%" style="height: 400px;">
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
@@ -294,88 +426,98 @@
       </div>
     </section><!-- End Specials Section -->
 
-    <!-- ======= Events Section ======= -->
+
     <section id="events" class="events">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Eventos</h2>
-          <p>{{$inicio->tituloEventos}}</p>
+          <h2>Ubicaciones</h2>
+          <p>Estas son las zonas de nuestro local</p>
         </div>
 
         <div class="events-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
+
               <div class="row event-item">
-                <div class="col-lg-6">
-                  <img src="assets/img/fondo1.jpg" class="img-fluid" alt="">
+                <h3>Zona de afuera</h3>
+
+                <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+                  <div class="row g-0">       
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid" style="width: 520px; height: 100px;">
+                        </a>
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid" style="width: 520px; height: 100px;">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+          
                 </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Inauguración del árbol navideño</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <ul>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  </ul>
-                  <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
-                  </p>
-                </div>
+
+
               </div>
             </div><!-- End testimonial item -->
 
+
             <div class="swiper-slide">
+
               <div class="row event-item">
-                <div class="col-lg-6">
-                  <img src="assets/img/fondo7.jpg" class="img-fluid" alt="">
+                <h3>Zona de comercio</h3>
+
+                <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+                  <div class="row g-0">       
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+          
+                    <div class="col-lg-3 col-md-4">
+                      <div class="gallery-item">
+                        <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
+                          <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+          
                 </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Visita de Influencer y YouTubers</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <ul>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  </ul>
-                  <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
-                  </p>
-                </div>
+
+
               </div>
             </div><!-- End testimonial item -->
 
-            <div class="swiper-slide">
-              <div class="row event-item">
-                <div class="col-lg-6">
-                  <img src="assets/img/fondo8.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Mascaradas</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-                  </p>
-                  <ul>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                  </ul>
-                  <p>
-                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur
-                  </p>
-                </div>
-              </div>
+
             </div><!-- End testimonial item -->
 
           </div>
@@ -384,6 +526,8 @@
 
       </div>
     </section><!-- End Events Section -->
+
+
 
     <!-- ======= Book A Table Section ======= -->
     <section id="book-a-table" class="book-a-table">
@@ -421,6 +565,16 @@
               <input type="number" class="form-control" name="num_personas" id="people" placeholder="Numero de personas" data-rule="minlen:1" data-msg="Please enter at least 1 chars" required>
               <div class="validate"></div>
             </div>
+            
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
           </div>
           <div class="form-group mt-3">
             <textarea class="form-control" name="mensaje" rows="5" placeholder="Mensaje"></textarea>
@@ -442,7 +596,7 @@
 
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Galleria</h2>
+          <h2>Galeria</h2>
           <p>{{$inicio->tituloGaleria}}</p>
         </div>
       </div>
@@ -604,18 +758,21 @@
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d491.2936649929114!2d-83.68216988263632!3d9.904836395888571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0d7edb4be34b9%3A0xf06c3c5b85e4a1f4!2sSanto%20Pan!5e0!3m2!1ses-419!2scr!4v1702267764298!5m2!1ses-419!2scr" frameborder="0" allowfullscreen></iframe>
       </div>
 
-      <div class="container" data-aos="fade-up">
+      <div class="container mt-5">
 
-        <div class="row mt-5">
 
-          <div class="col-lg-4">
             <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Localización:</h4>
-                <p>{{$inicio->localizacion}}</p>
+             <div class="row">
+
+              <div class="col-6" style="margin-top: 36px ">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Localización:</h4>
+                  <p>{{$inicio->localizacion}}</p>
+                </div>
               </div>
 
+              <div class="col-6">
               <div class="open-hours">
                 <i class="bi bi-clock"></i>
                 <h4>Horario</h4>
@@ -623,51 +780,41 @@
                   {{$inicio->horario}}
                 </p>
               </div>
+            </div>
 
+            <div class="col-6">
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
                 <p>{{$inicio->correo_electronico}}</p>
               </div>
+            </div>
 
+            <div class="col-6">
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Telefono:</h4>
                 <p>{{$inicio->telefono}}</p>
               </div>
-
             </div>
 
-          </div>
 
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electronico" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Tema" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="8" placeholder="Mensaje" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Cargando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Su mensaje ha sido enviado. Muchas gracias!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
-
-          </div>
-
+            </div>
         </div>
+
+        <center>
+          <div class="iconos-sociales mt-4">
+          
+          <a href="https://www.facebook.com/bySantoPan" target="_blank"><img loading="lazy" alt="Sígueme en Facebook" height="35" width="35" src=" https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6vlV5enwWRJSXPWHkLi_QEhcy0OAwMgVAqp4F0dvu5sJ5zMBOSAPoqw4ZrMk6GaS_YUtjrK6p_qrHJipWOJz_Ib3NIppNWwx8se0fmswGW1YhYOT4lzTZXssDtPNuzZ7KxvJGR3RDarUt/s0/facebook-icono.png" title="Síguenos en Facebook"/></a>
+          
+          <a href="https://www.instagram.com/santopan_turrialba/" target="_blank"><img loading="lazy" alt="Sígueme en Instagram" height="35" width="35" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioycSf-8NI3Ff15eeXtdXUO4e888671ildrsPBjKJnTFjzSymZi95xweZpk0Vc6zll0WDyE0pBGj3PWL564QS8VkRxeh_PbW6y6sT9dWJq-xHh1ohUJN737-Qe-c12TRC2kUAbf7TBzxK5/s0/Instagram-icono.png" title="Síguenos en Instagram"/></a>       
+             
+          </div>
+          </center>
+          
+           <!-- Aquí van los estilos -->
+          
+
 
       </div>
     </section><!-- End Contact Section -->
@@ -676,38 +823,14 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3>Santo Pan</h3>
-              <p>
-                Cartago, Turrialba<br>
-                Frente las vias de tren<br><br>
-                <strong>Phone:</strong> +506 8080 5544<br>
-                <strong>Email:</strong> info@example.com<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Restaurantly</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Santo Pan</span></strong>. Todos los derechos reservados
       </div>
       <div class="credits">
       
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <a href={{route('home')}} target="_blank">Administracion</a>
       </div>
     </div>
   </footer><!-- End Footer -->

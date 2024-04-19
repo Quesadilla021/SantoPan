@@ -7,10 +7,7 @@
             <div class="col-lg-12 position-relative z-index-2">
                 <div class="card card-plain mb-4">
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
-                        <h2 class="font-weight-bolder mb-0">Menu</h2>
-                        <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                            <a href="{{route('categorias')}}" class="btn btn-success">Categorias</a>
-                        </div>
+                        <h2 class="font-weight-bolder mb-0">Ubicaciones</h2>
 
                     </div>
                 </div>
@@ -28,7 +25,7 @@
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Agregar platillo</h6>
+                                <h6 class="text-white text-capitalize ps-3">Agregar Ubicacion</h6>
                             </div>
                         </div>
 
@@ -36,30 +33,12 @@
                             <div class="container">
                                 <div class="mt-3">
                                     <label for="Titulo">Titulo:</label>
-                                    <input class="form-control" type="text" name="nombre" placeholder="Ingrese el nombre" required>
-                                </div>
-
-                                <div class="mt-3">
-                                <label for="Detalles">Detalles:</label>
-                                <input class="form-control" type="text" name="detalles" placeholder="Ingrese los detalles" required>
-                             </div>
-
-                                <div class="mt-3">
-                                <label for="Precio">Precio:</label>
-                                <input class="form-control" type="number" name="precio" placeholder="Ingrese el precio" required>
-                             </div>
-
-                                <div class="mt-3">
-                                <label for="Categoria">Categoria:</label>
-                                <select name="categoria" class="form-select" aria-label="Default select example" required>
-                                    <option selected disabled>Seleccione una categoria</option>
-                                    @foreach ($categorias as $item)
-                                        <option value="{{$item->id_categoria}}">{{$item->nombre}}</option>
-                                    @endforeach
-                                  </select>
+                                    <input class="form-control" type="text" name="nombre" placeholder="Ingrese nombre de la ubicacion nueva" required>
                                 </div>
 
                                 <hr>
+                                <label for="email">Imagenes</label>
+
 
                                 <div class="mt-3">
                                     <label for="email">Imagen</label>

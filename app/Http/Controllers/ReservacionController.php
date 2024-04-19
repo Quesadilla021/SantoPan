@@ -18,6 +18,8 @@ class ReservacionController extends Controller
         $reservacion->mensaje = $request->mensaje;
         $reservacion->estado = 'Pendiente';
 
+        $reservacion->reciente = date("Y-m-d");
+
         $reservacion->save();
 
         return back();

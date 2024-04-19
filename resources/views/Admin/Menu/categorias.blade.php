@@ -33,10 +33,11 @@
 
                         <div class="card-header p-3 pt-2">
                             <div id="formulario">
-                                <label for="Titulo">Nombre</label>
-                                <input class="form-control" type="text" name="nombre" required>
-
-                                <button type="submit" class="btn btn-success mt-4">Agregar</button>
+                                <div class="mt-3">
+                                <label for="Titulo">Nombre:</label>
+                                <input class="form-control" type="text" name="nombre" placeholder="Ingrese el nombre para la categoria" required>
+                            </div>
+                                <button type="submit" class="btn btn-success mt-4" onclick="CategoriaAgregada()">Agregar</button>
 
                             </div>
                         </div>
@@ -79,11 +80,11 @@
                                         </td>
 
                                         <td class="d-flex justify-content-center align-middle text-center text-sm">
+{{-- 
+                                            <a href="" class="btn btn-outline-warning"><i
+                                                    class="fa-regular fa-pen-to-square"></i></a> --}}
 
-                                            <a href="{{-- {{route('editarServicio',$item->id_servicio)}} --}}" class="btn btn-outline-warning"><i
-                                                    class="fa-regular fa-pen-to-square"></i></a>
-
-                                            <form action="{{-- {{ route('servicio.destroy', $item->id_servicio) }} --}}" method="POST">
+                                            <form action="{{ route('destroyCategoria', $item->id_categoria) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger"><i

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CatecoriaController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ObjetivoController;
@@ -27,6 +28,8 @@ Route::get('/reservaciones',[pagesController::class, 'indexReservaciones'])->nam
 Route::get('/objetivos',[pagesController::class, 'indexObjetivos'])->name('objetivos');
 Route::get('/nosotros',[pagesController::class, 'indexNosotros'])->name('nosotros');
 Route::get('/inicio',[pagesController::class, 'indexInicio'])->name('inicio');
+Route::get('/ubicaciones',[pagesController::class, 'indexUbicacion'])->name('ubicaciones');
+Route::get('/eventos',[pagesController::class, 'indexEventos'])->name('eventos');
 
 ////updatesInicio////
 Route::put('/update_inicio',[InicioController::class, 'updateInicio'])->name('updateInicio');
@@ -45,6 +48,9 @@ Route::put('/update/inicio_Nosotros',[NosotrosController::class, 'updateInicioNo
 Route::get('/menu',[pagesController::class, 'indexMenu'])->name('menu');
 Route::get('/categorias',[pagesController::class, 'indexCategorias'])->name('categorias');
 Route::post('/agregarCategoria',[CatecoriaController::class, 'storeCategoria'])->name('agregarCategoria');
+Route::delete('/delete/categoria/{id}',[CatecoriaController::class, 'destroyCategoria'])->name('destroyCategoria');
+
+
 Route::post('/agregarPlatillo',[PlatillosController::class, 'storePlatillo'])->name('agregarPlatillo');
 Route::get('/editPlatillo_{id}',[PlatillosController::class, 'editPlatillo'])->name('editarPlatillo');
 Route::put('/update/platillo/{id}',[PlatillosController::class, 'updatePlatillo'])->name('upPlatillo');
@@ -55,6 +61,14 @@ Route::post('/agregarReservacion',[ReservacionController::class, 'storeReservaci
 Route::get('/verSolicitud_{id}',[ReservacionController::class, 'verSolicitud'])->name('verSolicitud');
 Route::put('/solicitud_rechazada_{id}',[ReservacionController::class, 'rechazarSoli'])->name('solicitudRechazada');
 Route::put('/solicitud_aprobada_{id}',[ReservacionController::class, 'aprobarSoli'])->name('solicitudAprobada');
+
+////Ubicaciones////
+
+/////Eventos/////
+Route::post('/agregarEvento',[EventoController::class, 'storeEvento'])->name('agregarEvento');
+Route::put('/update/inicio_evento',[EventoController::class, 'updateInicioEvento'])->name('upInEventos');
+Route::get('/editEvento_{id}',[EventoController::class, 'editEvento'])->name('editarEvento');
+Route::put('/update/evento/{id}',[EventoController::class, 'updateEvento'])->name('upEvento');
 
 
 

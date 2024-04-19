@@ -38,11 +38,12 @@
                             <th class="text-center" >Telefono</th>
                                 {{-- FECHA DE SOLICITUD Y OTRA FECHA DE RECIBIDO --}}
 
-                            <th class="text-center" >Fecha</th>
+                            <th class="text-center" >Fecha solicitada</th>
                             {{-- <th>Hora</th> --}}
                             <th class="text-center">Numero de personas</th>
                             {{-- <th>Mensaje</th> --}}
                             <th class="text-center">Estado</th>
+                            <th class="text-center">Recientes</th>
                             <th class="text-center">Ver solicitud</th>
                         </tr>
                     </thead>
@@ -68,6 +69,9 @@
                                     <td class="text-center" style="color: orange">{{$item->estado}}</td>
                                     
                             @endswitch
+
+                            <td class="text-center">{{$item->reciente}}</td>
+
 
                             <td class="d-flex justify-content-center align-middle text-center text-sm">
 
