@@ -8,6 +8,7 @@ use App\Models\imagenes_inicio;
 use App\Models\Inicio;
 use App\Models\Nosotros;
 use App\Models\Objetivo;
+use App\Models\Personal;
 use App\Models\Platillo;
 use App\Models\Reservaciones;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class pagesController extends Controller
         $platillos = Platillo::all();
         $categorias = Categoria::all();
         $eventos = Evento::all();
-        return view('index', compact('inicio', 'imagenes', 'objetivos', 'nosotros', 'platillos', 'categorias', 'eventos'));
+        $personal = Personal::all();
+        return view('index', compact('inicio', 'imagenes', 'objetivos', 'nosotros', 'platillos', 'categorias', 'eventos', 'personal'));
     }
 
     ////////Admin///////
@@ -69,6 +71,12 @@ class pagesController extends Controller
 
     function indexUbicacion(){
         return view('Admin.Ubicaciones.ubicaciones', compact('categorias'));
+    }
+
+    function indexPersonal(){
+        $inicio = Inicio::findOrFail(1);
+        $personal = Personal::all();
+        return view('Admin.Personalizar_inicio.personal', compact('inicio', 'personal'));
     }
     
 }

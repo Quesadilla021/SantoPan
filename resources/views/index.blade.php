@@ -302,7 +302,6 @@
               
           <div class="col-lg-4">
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <span>01</span>
               <h4>{{$item->titulo}}</h4>
               <p>{{$item->descripcion}}</p>
             </div>
@@ -567,8 +566,8 @@
             </div>
             
             <div class="col-lg-4 col-md-6 form-group mt-3">
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
+            <select class="form-select p-2" aria-label="Default select example">
+              <option selected>Seleccione la zona donde le gustaria reservar</option>
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -680,64 +679,31 @@
 
         <div class="section-title">
           <h2>Chefs</h2>
-          <p>{{$inicio->tituloChefs}}</p>
+          <p>{{$inicio->tituloPersonal}}</p>
         </div>
 
         <div class="row">
 
+          @foreach ($personal as $item)    
+
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+              <img src="{{$item->imagen}}" class="img-fluid" alt="" style="width: 736px; height: 380px;">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Master Chef</span>
+                  <h4>{{$item->nombre}}</h4>
+                  <span>{{$item->rol}}</span>
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="{{$item->facebook}}"><i class="bi bi-facebook"></i></a>
+                  <a href="{{$item->instagram}}"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Patissier</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
 
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>Cook</span>
-                </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
 

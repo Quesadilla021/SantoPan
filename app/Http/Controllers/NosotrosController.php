@@ -29,4 +29,29 @@ class NosotrosController extends Controller
 
         return back();  
     }
+
+    function editNosotros($id) {
+        $nosotros = Nosotros::findOrFail($id);
+
+        return view('Admin.Personalizar_inicio.editarNosotros', compact('nosotros'));
+    }
+
+    function updateNosotros($id, Request $request){
+        $nosotros = Nosotros::findOrFail($id);
+        
+        $nosotros->titulo = $request->tituloMision;
+        $nosotros->descripcion = $request->descripcionMision;
+
+        $nosotros->save();
+
+        return back();  
+    }
+
+    function destroyNosotros($id){
+        $nosotros = Nosotros::findOrFail($id);
+        
+        $nosotros->delete();
+
+        return back();
+    }
 }

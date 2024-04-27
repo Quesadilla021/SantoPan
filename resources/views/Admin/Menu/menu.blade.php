@@ -41,7 +41,7 @@
 
                                 <div class="mt-3">
                                 <label for="Detalles">Detalles:</label>
-                                <input class="form-control" type="text" name="detalles" placeholder="Ingrese los detalles" required>
+                                <input class="form-control" type="text" name="detalles" placeholder="Ingrese los detalles">
                              </div>
 
                                 <div class="mt-3">

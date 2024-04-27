@@ -59,4 +59,12 @@ class EventoController extends Controller
         $evento->save();
         return back();
     }
+
+    function destroyEvento($id){
+        $evento =  Evento::findOrFail($id);
+        $evento->delete();
+
+        return back();
+
+    }
 }

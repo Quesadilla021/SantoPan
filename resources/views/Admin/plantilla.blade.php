@@ -183,6 +183,17 @@
                         <span class="nav-link-text ms-1">Seccion Eventos</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="dropdown-item nav-link text-white " href="{{route('personal')}}">
+
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Seccion Personal</span>
+                    </a>
+                </li>
                 
             </ul>
         </div>

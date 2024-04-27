@@ -6,6 +6,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ObjetivoController;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PlatillosController;
 use App\Http\Controllers\ReservacionController;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,7 @@ Route::get('/nosotros',[pagesController::class, 'indexNosotros'])->name('nosotro
 Route::get('/inicio',[pagesController::class, 'indexInicio'])->name('inicio');
 Route::get('/ubicaciones',[pagesController::class, 'indexUbicacion'])->name('ubicaciones');
 Route::get('/eventos',[pagesController::class, 'indexEventos'])->name('eventos');
+Route::get('/personal',[pagesController::class, 'indexPersonal'])->name('personal');
 
 ////updatesInicio////
 Route::put('/update_inicio',[InicioController::class, 'updateInicio'])->name('updateInicio');
@@ -43,6 +45,10 @@ Route::delete('/delete/objetivo/{id}',[ObjetivoController::class, 'destroyObjeti
 ////Nosotros////
 Route::post('/agregarMision',[NosotrosController::class, 'storeMision'])->name('agregarMision');
 Route::put('/update/inicio_Nosotros',[NosotrosController::class, 'updateInicioNosotros'])->name('upInNosotros');
+Route::get('/editNosotros_{id}',[NosotrosController::class, 'editNosotros'])->name('editarNosotros');
+Route::put('/update/nosotros/{id}',[NosotrosController::class, 'updateNosotros'])->name('upNosotros');
+Route::delete('/delete/nosotros/{id}',[NosotrosController::class, 'destroyNosotros'])->name('destroyNosotros');
+
 
 ////Menu////
 Route::get('/menu',[pagesController::class, 'indexMenu'])->name('menu');
@@ -69,6 +75,15 @@ Route::post('/agregarEvento',[EventoController::class, 'storeEvento'])->name('ag
 Route::put('/update/inicio_evento',[EventoController::class, 'updateInicioEvento'])->name('upInEventos');
 Route::get('/editEvento_{id}',[EventoController::class, 'editEvento'])->name('editarEvento');
 Route::put('/update/evento/{id}',[EventoController::class, 'updateEvento'])->name('upEvento');
+Route::delete('/delete/evento/{id}',[EventoController::class, 'destroyEvento'])->name('destroyEvento');
+
+
+/////Personal/////
+Route::put('/update/inicio_personal',[PersonalController::class, 'updateInPersonal'])->name('upInPersonal');
+Route::post('/agregarPersonal',[PersonalController::class, 'storePersonal'])->name('agregarPersonal');
+Route::get('/editPersonal_{id}',[PersonalController::class, 'editPersonal'])->name('editarPersonal');
+Route::put('/update/personal/{id}',[PersonalController::class, 'updatePersonal'])->name('upPersonal');
+Route::delete('/delete/personal/{id}',[PersonalController::class, 'destroyPersonal'])->name('destroyPersonal');
 
 
 
