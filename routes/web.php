@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CatecoriaController;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\GaleriaController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ObjetivoController;
@@ -9,6 +10,8 @@ use App\Http\Controllers\pagesController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PlatillosController;
 use App\Http\Controllers\ReservacionController;
+use App\Http\Controllers\UbicacionController;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +35,7 @@ Route::get('/inicio',[pagesController::class, 'indexInicio'])->name('inicio');
 Route::get('/ubicaciones',[pagesController::class, 'indexUbicacion'])->name('ubicaciones');
 Route::get('/eventos',[pagesController::class, 'indexEventos'])->name('eventos');
 Route::get('/personal',[pagesController::class, 'indexPersonal'])->name('personal');
+Route::get('/galeria',[pagesController::class, 'indexGaleria'])->name('galeria');
 
 ////updatesInicio////
 Route::put('/update_inicio',[InicioController::class, 'updateInicio'])->name('updateInicio');
@@ -69,6 +73,15 @@ Route::put('/solicitud_rechazada_{id}',[ReservacionController::class, 'rechazarS
 Route::put('/solicitud_aprobada_{id}',[ReservacionController::class, 'aprobarSoli'])->name('solicitudAprobada');
 
 ////Ubicaciones////
+Route::post('/agregarUbicacion',[UbicacionController::class, 'storeUbicacion'])->name('agregarUbicacion');
+Route::get('/nuevaImgGaleria_{id}',[UbicacionController::class, 'indexAgregarImgsZonas'])->name('fotosUbicacion');
+Route::post('/agregarFotosUbicacion_{id}',[UbicacionController::class, 'agregarFotosUbicacion'])->name('agregarFotosUbi');
+Route::get('/editUbicacion_{id}',[UbicacionController::class, 'editUbicacion'])->name('editarUbicacion');
+Route::put('/update/ubicacion/{id}',[UbicacionController::class, 'updateUbicacion'])->name('upUbicacion');
+Route::delete('/delete/fotoUbi/{id}',[UbicacionController::class, 'destroyFotoUbi'])->name('eliminarFotoUbi');
+Route::delete('/delete/ubicacion/{id}',[UbicacionController::class, 'destroyUbicacion'])->name('eliminarUbicacion');
+
+
 
 /////Eventos/////
 Route::post('/agregarEvento',[EventoController::class, 'storeEvento'])->name('agregarEvento');
@@ -84,6 +97,13 @@ Route::post('/agregarPersonal',[PersonalController::class, 'storePersonal'])->na
 Route::get('/editPersonal_{id}',[PersonalController::class, 'editPersonal'])->name('editarPersonal');
 Route::put('/update/personal/{id}',[PersonalController::class, 'updatePersonal'])->name('upPersonal');
 Route::delete('/delete/personal/{id}',[PersonalController::class, 'destroyPersonal'])->name('destroyPersonal');
+
+/////Galeria/////
+Route::put('/update/inicio_galeria',[GaleriaController::class, 'updateInGaleria'])->name('upInGaleria');
+Route::get('/agregarNuevaImgGaleria',[GaleriaController::class, 'indexAgregarGaleria'])->name('imgNuevas');
+Route::post('/agregarImgGaleria',[GaleriaController::class, 'storeGaleria'])->name('agregarGaleria');
+Route::delete('/delete/galeria/{id}',[GaleriaController::class, 'destroyGaleria'])->name('destroyGaleria');
+
 
 
 

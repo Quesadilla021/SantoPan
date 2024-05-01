@@ -28,23 +28,26 @@
 
                         <div class="card-header p-3 pt-2">
                             <div id="formulario">
-                                <label>Nombre Completo</label>
+                                <label class="mt-2">Nombre Completo</label>
                                 <input class="form-control" type="text"  value="{{$reservacion->nombre}}" disabled>
                                 
-                                <label>Telefono</label>
+                                <label class="mt-2">Telefono</label>
                                 <input class="form-control" type="text"  value="{{$reservacion->telefono}}" disabled>
                                 
                                 {{-- FECHA DE SOLICITUD Y OTRA FECHA DE RECIBIDO --}}
-                                <label>Fecha</label>
+                                <label class="mt-2">Fecha</label>
                                 <input class="form-control" type="date"  value="{{$reservacion->fecha}}" disabled>
                                 
-                                <label>Hora</label>
+                                <label class="mt-2">Hora</label>
                                 <input class="form-control" type="text"  value="{{$reservacion->hora}}" disabled>
                                 
-                                <label>Numero de personas</label>
+                                <label class="mt-2">Numero de personas</label>
                                 <input class="form-control" type="text"  value="{{$reservacion->num_personas}}" disabled>
 
-                                <label for="Titulo">Mensaje</label>
+                                <label class="mt-2">Zona Elegida</label>
+                                <input class="form-control" type="text"  value="{{$reservacion->ubicacion}}" disabled>
+
+                                <label class="mt-2" for="Titulo">Mensaje</label>
                                 <textarea class="form-control" type="text" rows="10" cols="50" disabled>{{$reservacion->mensaje}}</textarea>
 
                                 @if ($reservacion->estado == 'Pendiente')

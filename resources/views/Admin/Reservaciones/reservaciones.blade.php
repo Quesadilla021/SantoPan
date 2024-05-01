@@ -36,9 +36,8 @@
                         <tr>
                             <th class="text-center" >Nombre Completo</th>
                             <th class="text-center" >Telefono</th>
-                                {{-- FECHA DE SOLICITUD Y OTRA FECHA DE RECIBIDO --}}
-
                             <th class="text-center" >Fecha solicitada</th>
+                            <th class="text-center" >Zona</th>
                             {{-- <th>Hora</th> --}}
                             <th class="text-center">Numero de personas</th>
                             {{-- <th>Mensaje</th> --}}
@@ -55,6 +54,7 @@
                             <td class="text-center">{{$item->nombre}}</td>
                             <td class="text-center">{{$item->telefono}}</td>
                             <td class="text-center">{{$item->fecha}}</td>
+                            <td class="text-center">{{$item->ubicacion}}</td>
                             <td class="text-center">{{$item->num_personas}}</td>
                             @switch($item->estado)
                                 @case('Aprobado')

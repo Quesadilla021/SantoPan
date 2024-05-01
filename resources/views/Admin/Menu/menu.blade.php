@@ -92,7 +92,7 @@
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive m-2">
 
-                            <table id="tabla_platillos" class="table table-light table-striped align-items-center mb-0" style="width:100%">
+                            <table id="dataTable" class="table table-light table-striped align-items-center mb-0" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th class="text-center" >Platillo</th>

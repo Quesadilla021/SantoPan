@@ -426,40 +426,38 @@
     </section><!-- End Specials Section -->
 
 
-    <section id="events" class="events">
+    <section id="gallery" class="gallery">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Ubicaciones</h2>
+          <h2>Zonas de Santo Pan</h2>
           <p>Estas son las zonas de nuestro local</p>
         </div>
 
         <div class="events-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
 
+            @foreach ($ubicaciones as $item)
+                
             <div class="swiper-slide">
 
               <div class="row event-item">
-                <h3>Zona de afuera</h3>
+                <h3>{{$item->nombre}}</h3>
 
                 <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
                   <div class="row g-0">       
-                    <div class="col-lg-3 col-md-4">
-                      <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                          <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid" style="width: 520px; height: 100px;">
-                        </a>
-                      </div>
+
+                  @foreach ($item->imagenes as $kitem)
+                  <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item" >
+                      <a href="{{$kitem->imagen}}" class="gallery-lightbox" data-gall="gallery-item" >
+                        <img src="{{$kitem->imagen}}" alt="" class="img-fluid" style="width: 580px; height: 260px;">
+                      </a>
                     </div>
-          
-                    <div class="col-lg-3 col-md-4">
-                      <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                          <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid" style="width: 520px; height: 100px;">
-                        </a>
-                      </div>
-                    </div>
+                  </div>
+                  @endforeach
+
+
                   </div>
           
                 </div>
@@ -468,59 +466,11 @@
               </div>
             </div><!-- End testimonial item -->
 
-
-            <div class="swiper-slide">
-
-              <div class="row event-item">
-                <h3>Zona de comercio</h3>
-
-                <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-                  <div class="row g-0">       
-                    <div class="col-lg-3 col-md-4">
-                      <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                          <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-                        </a>
-                      </div>
-                    </div>
-          
-                    <div class="col-lg-3 col-md-4">
-                      <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                          <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-                        </a>
-                      </div>
-                    </div>
-          
-                    <div class="col-lg-3 col-md-4">
-                      <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                          <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-                        </a>
-                      </div>
-                    </div>
-          
-                    <div class="col-lg-3 col-md-4">
-                      <div class="gallery-item">
-                        <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                          <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-          
-                </div>
-
-
-              </div>
-            </div><!-- End testimonial item -->
-
+            @endforeach
 
             </div><!-- End testimonial item -->
-
+              <div class="swiper-pagination"></div>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
 
       </div>
@@ -566,11 +516,11 @@
             </div>
             
             <div class="col-lg-4 col-md-6 form-group mt-3">
-            <select class="form-select p-2" aria-label="Default select example">
-              <option selected>Seleccione la zona donde le gustaria reservar</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select name="ubicacion" class="form-select p-2" aria-label="Default select example" required>
+              <option selected disabled>Seleccione la zona donde le gustaria reservar</option>
+              @foreach ($ubicaciones as $item)
+                <option value="{{$item->nombre}}">{{$item->nombre}}</option>                 
+              @endforeach
             </select>
           </div>
 
@@ -604,69 +554,15 @@
 
         <div class="row g-0">
 
+          @foreach ($galeria as $item)
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-1.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              <a href="{{$item->imagen}}" class="gallery-lightbox" data-gall="gallery-item">
+                <img src="{{$item->imagen}}" alt="" class="img-fluid">
               </a>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-2.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-3.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-4.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-5.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-6.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-7.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-8.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
+          @endforeach
 
         </div>
 

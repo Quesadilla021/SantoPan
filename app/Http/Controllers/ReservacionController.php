@@ -16,6 +16,7 @@ class ReservacionController extends Controller
         $reservacion->hora = $request->hora;
         $reservacion->num_personas = $request->num_personas;
         $reservacion->mensaje = $request->mensaje;
+        $reservacion->ubicacion = $request->ubicacion;
         $reservacion->estado = 'Pendiente';
 
         $reservacion->reciente = date("Y-m-d");

@@ -30,34 +30,11 @@
 
 
 
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-
-    <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-
-    <!-- CSS Files -->
-    <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css">
-
+    @include('Admin.partes.parteStyle')
 
 
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 
 
 </head>
@@ -121,7 +98,7 @@
                             <i class="fa-solid fa-map-location-dot"></i>
                         </div>
 
-                        <span class="nav-link-text ms-1">Ubicaciones</span>
+                        <span class="nav-link-text ms-1">Zonas</span>
                     </a>
                 </li>
 
@@ -137,7 +114,7 @@
                 </li> --}}
 
                 <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Personalizar</h6>
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Personalizar Inicio</h6>
                   </li>
 
                   <li class="nav-item">
@@ -195,6 +172,17 @@
                     </a>
                 </li>
                 
+                <li class="nav-item">
+                    <a class="dropdown-item nav-link text-white " href="{{route('galeria')}}">
+
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <span class="nav-link-text ms-1">Seccion Galeria</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
 
@@ -379,168 +367,8 @@
         </div>
     </div>
 
-    <script>
-        function previewImage(event, pImage, pContainer) {
-            console.log(pImage);
-            console.log(pContainer);
-            var input = event.target;
-            var previewImage = document.getElementById(pImage);
-            var previewContainer = document.getElementById(pContainer);
-
-            var file = input.files[0];
-
-            if (file) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewContainer.style.display = 'block';
-                };
-
-                reader.readAsDataURL(file);
-            } else {
-                previewImage.src = '#';
-                previewContainer.style.display = 'none';
-            }
-        }
-    </script>
-
-    <!--   Core JS Files   -->
-    <script src="./assets/js/core/popper.min.js"></script>
-    <script src="./assets/js/core/bootstrap.min.js"></script>
-    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-    <script > new DataTable('#tabla_platillos');</script>
-
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-
-        function platilloAgregado() {
-        Swal.fire(
-        '¡Platillo Agregado!',
-        'En breves notara los cambios',
-        'success'
-    )
-    }
-
-    function platilloActualizado() {
-        Swal.fire(
-        '¡Platillo Actualizado!',
-        'En breves notara los cambios',
-        'success'
-    )
-    }
-
-    function ObjetivoNuevo() {
-        Swal.fire(
-        '¡Objetivo Agregado!',
-        'En breves notara los cambios',
-        'success'
-    )
-    }
-
-    function ObjetivoEliminado() {
-        Swal.fire(
-        '¡Objetivo Eliminado!',
-        'En breves notara los cambios',
-        'success'
-    )
-    }
-
+   @include('Admin.partes.parteScript')
     
-    function CambiosRealizado() {
-        Swal.fire(
-        '¡Cambios Realizados!',
-        'En breves notara los cambios en la pagina principal',
-        'success'
-    )
-    }
-
-    function MisionAgregada() {
-        Swal.fire(
-        '¡Mision Agregada!',
-        'En breves notara los cambios',
-        'success'
-    )
-    }
-
-    function CategoriaAgregada() {
-        Swal.fire(
-        '¡Categoria Agregada!',
-        'En breves notara los cambios',
-        'success'
-    )
-    }
-
-    function EliminarCategoria(ev) {
-         Swal.fire({
-            title: 'Eliminar categoria',
-            text: "Al eliminarla se eliminaran todos los platillos con esta categoria",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Terminar'
-            }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                'Se elimino correctatemente',
-                'En breves notara los cambios',
-                'success'
-                )
-                setTimeout( function() { window.location.href = "{{route('destroyCategoria', "+id+")}}"; }, 2000 );
-            }
-         })
-        }
-
-        function confirmation(ev) {
-        ev.preventDefault();
-        var urlToRedirect = ev.currentTarget.getAttribute('href');  
-        console.log(urlToRedirect); 
-        swal({
-            title: "Are you sure to Delete this post",
-            text: "You will not be able to revert this!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-        .then((willCancel) => {
-            if (willCancel) {
-
-
-                 
-                window.location.href = urlToRedirect;
-               
-            }  
-
-
-        });
-
-        
-    }
-
-    </script>
-
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
 
 </html>
