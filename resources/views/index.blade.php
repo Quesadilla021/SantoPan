@@ -237,7 +237,7 @@
               <div class="swiper-slide">
                 <div class="row event-item">
                   <div class="col-lg-6">
-                    <img src="{{$item->imagen}}" class="img-fluid" alt="">
+                    <img src="{{$item->imagen}}" class="img-fluid" alt="" style="width: 650px; height: 450px;">
                   </div>
                   <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3>{{$item->nombre}}</h3>
@@ -358,66 +358,62 @@
     <section id="specials" class="specials">
       <div class="container" data-aos="fade-up">
 
+        @php
+            $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+
+            $diaActual = $dias[date("w")];
+
+            $primero = 'active show';
+            $primero2 = 'active show';
+        @endphp
+
         <div class="section-title">
           <h2>Especialidades</h2>
-          <p>{{$inicio->tituloEspecialidades}}</p>
+          <p>Especialidades para hoy {{$diaActual}}</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+
+
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
-              <li class="nav-item">
-                <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Arroz con verduras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-2">Ensalada de frutas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-3">Pho Bo, una sopa vietnamita tradicional</a>
-              </li>
-              {{-- <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-4">Nostrum qui quasi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab-5">Iusto ut expedita aut</a>
-              </li> --}}
+
+              @foreach ($platillos as $item)
+                @if ($item->dia == $diaActual)                  
+                <li class="nav-item">
+                  <a class="nav-link {{$primero2}}" data-bs-toggle="tab" href="#tab-{{$item->id_platillo}}">{{$item->nombre}}</a>
+                </li>
+                {{$primero2 = ''}}
+                @endif
+              @endforeach
+
             </ul>
           </div>
+
+
           <div class="col-lg-9 mt-4 mt-lg-0">
             <div class="tab-content">
-              <div class="tab-pane active show" id="tab-1">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Arroz con verduras</h3>
-                    <p class="fst-italic">Este plato de arroz con verduras es una opción saludable y deliciosa para cualquier ocasión. El arroz es una fuente de carbohidratos complejos que proporcionan energía, mientras que las verduras son una buena fuente de vitaminas, minerales y fibra.</p>
+
+              @foreach ($platillos as $item)
+                  @if ($item->dia == $diaActual)
+                  <div class="tab-pane {{$primero}}" id="tab-{{$item->id_platillo}}">
+                    <div class="row">
+                      <div class="col-lg-8 details order-2 order-lg-1">
+                        <h3>{{$item->nombre}} - ₡ {{number_format($item->precio, 0,',', '.')}}</h3>
+                        <h5>{{$item->categoria->nombre}}</h5>
+                        <p class="fst-italic">{{$item->detalles}}</p>
+                      </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2">
+                        <img src="{{$item->imagen}}" alt="" class="img-fluid" style="width: 300px; height: 250px;">
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-1.png" alt="" class="img-fluid">
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane" id="tab-2">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Ensalada de frutas</h3>
-                    <p class="fst-italic">Este delicioso platillo es una explosión de sabor y color. Está compuesto por una variedad de frutas y verduras frescas, cortadas en trozos pequeños para que sean fáciles de comer. Las frutas aportan dulzura y frescura, mientras que las verduras aportan nutrientes y fibra.</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-2.png" alt="" class="img-fluid">
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane" id="tab-3">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3> Pho Bo, una sopa vietnamita tradicional</h3>
-                    <p class="fst-italic">En este restaurante cafetería, el pho bo se prepara con fideos de arroz frescos, carne de res de alta calidad y una deliciosa salsa de carne. Los ingredientes se cocinan a fuego lento en un caldo de res aromático hasta que estén tiernos y sabrosos. La sopa se sirve luego con una variedad de verduras frescas, como cebollas verdes, cilantro y rodajas de lima.</p>
-                  </div>
-                  <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/specials-3.png" alt="" class="img-fluid">
-                  </div>
-                </div>
-              </div>
+
+                  {{$primero = ''}}
+                  @endif
+              @endforeach
+
             </div>
           </div>
         </div>

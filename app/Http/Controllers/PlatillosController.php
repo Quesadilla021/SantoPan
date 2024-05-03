@@ -16,6 +16,7 @@ class PlatillosController extends Controller
         $platillos->detalles = $request->detalles;
         $platillos->precio = $request->precio;
         $platillos->id_categoria = $request->categoria;
+        $platillos->dia = $request->dia;
 
         if ($request->hasFile('imagenPlatillo')){
             $img = $request->imagenPlatillo->store('imagenes', 'public');
@@ -44,6 +45,7 @@ class PlatillosController extends Controller
         $platillo->detalles = $request->detalles;
         $platillo->precio = $request->precio;
         $platillo->id_categoria = $request->categoria;
+        $platillo->dia = $request->dia;
 
         if ($request->hasFile('imagenPlatillo')){
             $img = $request->imagenPlatillo->store('imagenes', 'public');

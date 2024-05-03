@@ -36,7 +36,7 @@
                                 <input class="form-control" type="text" name="nombre" value="{{$platillo->nombre}}" required>
 
                                 <label for="Detalles">Detalles</label>
-                                <input class="form-control" type="text" name="detalles" value="{{$platillo->detalles}}" required>
+                                <input class="form-control" type="text" name="detalles" value="{{$platillo->detalles}}">
 
                                 <label for="Precio">Precio</label>
                                 <input class="form-control" type="number" name="precio" value="{{$platillo->precio}}" required>
@@ -50,6 +50,21 @@
                                         @endif
                                     @endforeach
                                   </select>
+
+                                  <div class="mt-3">
+                                    <label for="Dia">Platillo del dia:</label>
+                                    <select name="dia" class="form-select" aria-label="Default select example" required>
+                                        <option selected value="{{$platillo->dia}}">{{$platillo->dia}}</option>
+                                            <option value="Todos los dias">Todos los dias</option>
+                                            <option value="Lunes">Lunes</option>
+                                            <option value="Martes">Martes</option>
+                                            <option value="Miercoles">Miercoles</option>
+                                            <option value="Jueves">Jueves</option>
+                                            <option value="Viernes">Viernes</option>
+                                            <option value="Sabado">Sabado</option>
+                                            <option value="Domingo">Domingo</option>
+                                      </select>
+                                    </div>
 
                                 <hr>
 

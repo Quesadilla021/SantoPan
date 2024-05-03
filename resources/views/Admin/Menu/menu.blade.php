@@ -59,6 +59,20 @@
                                   </select>
                                 </div>
 
+                                <div class="mt-3">
+                                    <label for="Dia">Platillo del dia:</label>
+                                    <select name="dia" class="form-select" aria-label="Default select example" required>
+                                        <option selected value="Todos los dias">Todos los dias</option>
+                                            <option value="Lunes">Lunes</option>
+                                            <option value="Martes">Martes</option>
+                                            <option value="Miercoles">Miercoles</option>
+                                            <option value="Jueves">Jueves</option>
+                                            <option value="Viernes">Viernes</option>
+                                            <option value="Sabado">Sabado</option>
+                                            <option value="Domingo">Domingo</option>
+                                      </select>
+                                    </div>
+
                                 <hr>
 
                                 <div class="mt-3">
