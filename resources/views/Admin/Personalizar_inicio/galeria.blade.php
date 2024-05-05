@@ -12,7 +12,7 @@
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <h2 class="font-weight-bolder mb-0">Personalizar Galeria</h2>
                             <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                                <button type="submit" class="btn btn-success" onclick="CambiosRealizado()">Guardar cambios</button>
+                                <button type="submit" class="btn btn-success">Guardar cambios</button>
                             </div>
 
                         </div>
@@ -89,7 +89,7 @@
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger"><i
-                                                        class="fa-regular fa-trash-can" onclick="ObjetivoEliminado()"></i></button>
+                                                        class="fa-regular fa-trash-can"></i></button>
                                             </form>
                                         </td>
                                     </tr>

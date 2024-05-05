@@ -6,6 +6,7 @@ use App\Models\imagenes_inicio;
 use App\Models\Inicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class InicioController extends Controller
 {
@@ -29,6 +30,8 @@ class InicioController extends Controller
 
         $inicio->save();
         $imagenPrincipal->save();
+
+        Alert::success('Cambios guardados', 'La informacion del inicio fue actualizada correctamente');
 
         return back();
 

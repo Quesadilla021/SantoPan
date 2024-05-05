@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CatecoriaController extends Controller
 {
@@ -14,6 +15,8 @@ class CatecoriaController extends Controller
 
         $categoria->save();
 
+        Alert::success('Agregado', 'La nueva categoria fue agregada correctamente');
+
         return back();
     }
 
@@ -21,6 +24,8 @@ class CatecoriaController extends Controller
         $categoria = Categoria::findOrFail($id);
 
         $categoria->delete();
+
+        Alert::success('Eliminado', 'La categoria fue eliminada correctamente');
 
         return back();
     }

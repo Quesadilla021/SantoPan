@@ -6,6 +6,7 @@ use App\Models\Evento;
 use App\Models\Inicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EventoController extends Controller
 {
@@ -16,6 +17,8 @@ class EventoController extends Controller
         $inicio->tituloEventos = $request->tituloEventos;
 
         $inicio->save();
+
+        Alert::success('Cambios guardados', 'El titulo del evento fue actualizado correctamente');
 
         return back();  
     }
@@ -34,6 +37,9 @@ class EventoController extends Controller
         }
 
         $evento->save();
+
+        Alert::success('Agregado', 'El evento fue agregado correctamente');
+
         return back();
     }
 
@@ -57,12 +63,17 @@ class EventoController extends Controller
         }
 
         $evento->save();
+
+        Alert::success('Cambios guardados', 'El evento fue actualizado correctamente');
+
         return back();
     }
 
     function destroyEvento($id){
         $evento =  Evento::findOrFail($id);
         $evento->delete();
+
+        Alert::success('Eliminado', 'El evento fue eliminado correctamente');
 
         return back();
 

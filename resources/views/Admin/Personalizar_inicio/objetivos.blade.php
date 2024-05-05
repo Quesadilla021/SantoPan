@@ -12,7 +12,7 @@
                             style="display: flex; justify-content: space-between; align-items: center;">
                             <h2 class="font-weight-bolder mb-0">Personalizar Objetivos</h2>
                             <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                                <button type="submit" class="btn btn-success" onclick="CambiosRealizado()">Guardar cambios</button>
+                                <button type="submit" class="btn btn-success">Guardar cambios</button>
                             </div>
 
                         </div>
@@ -87,7 +87,7 @@
                             <label for="Titulo">Objetivo nuevo:</label>
                             @csrf
                             <input class="form-control" type="text" name="objetivo" style="order: 1;" required>
-                            <button type="submit" class="btn btn-success mt-3" style="order: 2;" onclick="ObjetivoNuevo()">+</button>
+                            <button type="submit" class="btn btn-success mt-3" style="order: 2;">+</button>
                         </div>
 
                     </form>
@@ -122,7 +122,7 @@
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-outline-danger"><i
-                                                        class="fa-regular fa-trash-can" onclick="ObjetivoEliminado()"></i></button>
+                                                        class="fa-regular fa-trash-can"></i></button>
                                             </form>
                                         </td>
                                     </tr>

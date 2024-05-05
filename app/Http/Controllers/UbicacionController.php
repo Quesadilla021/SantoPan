@@ -6,6 +6,7 @@ use App\Models\Imagenes_ubicacion;
 use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UbicacionController extends Controller
 {
@@ -15,6 +16,8 @@ class UbicacionController extends Controller
         $ubicacion->nombre = $request->nombre;
 
         $ubicacion->save();
+        
+        Alert::success('Agregado', 'La ubicacion fue agregada correctamente');
         
         return back();
     }
@@ -54,6 +57,8 @@ class UbicacionController extends Controller
         $ubicacion->nombre = $request->nombre;
 
         $ubicacion->save();
+
+        Alert::success('Cambios guardados', 'El titulo de personal fue actualizado correctamente');
         
         return back();
     }
@@ -63,6 +68,8 @@ class UbicacionController extends Controller
 
         $imagen->delete();
 
+        Alert::success('Eliminado', 'La foto de la ubicacion fue eliminada correctamente');
+
         return back();  
     }
 
@@ -70,6 +77,8 @@ class UbicacionController extends Controller
         $ubicacion = Ubicacion::findOrFail($id);
 
         $ubicacion->delete();
+
+        Alert::success('Eliminado', 'La ubicacion fue eliminada correctamente');
 
         return back();
     }

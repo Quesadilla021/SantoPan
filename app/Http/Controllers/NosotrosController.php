@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inicio;
 use App\Models\Nosotros;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class NosotrosController extends Controller
 {
@@ -14,6 +15,8 @@ class NosotrosController extends Controller
         $inicio->tituloNosotros = $request->tituloNosotros;
 
         $inicio->save();
+
+        Alert::success('Cambios guardados', 'El titulo de nosotros fue actualizado correctamente');
 
         return back();  
     }
@@ -26,6 +29,8 @@ class NosotrosController extends Controller
         $nosotros->descripcion = $request->descripcionMision;
 
         $nosotros->save();
+
+        Alert::success('Agregado', 'La mision fue agregado correctamente');
 
         return back();  
     }
@@ -44,6 +49,8 @@ class NosotrosController extends Controller
 
         $nosotros->save();
 
+        Alert::success('Cambios guardados', 'La mision fue actualizada correctamente');
+
         return back();  
     }
 
@@ -51,6 +58,8 @@ class NosotrosController extends Controller
         $nosotros = Nosotros::findOrFail($id);
         
         $nosotros->delete();
+
+        Alert::success('Eliminado', 'La mision fue eliminada correctamente');
 
         return back();
     }

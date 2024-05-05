@@ -6,6 +6,7 @@ use App\Models\Inicio;
 use App\Models\Personal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PersonalController extends Controller
 {
@@ -15,6 +16,8 @@ class PersonalController extends Controller
         $inicio->tituloPersonal = $request->tituloPersonal;
 
         $inicio->save();
+
+        Alert::success('Cambios guardados', 'El titulo de personal fue actualizado correctamente');
 
         return back();  
     }
@@ -34,6 +37,9 @@ class PersonalController extends Controller
         }
 
         $personal->save();
+
+        Alert::success('Agregado', 'El nuevo personal fue agregado correctamente');
+
         return back();
         
     }
@@ -59,6 +65,9 @@ class PersonalController extends Controller
         }
 
         $personal->save();
+
+        Alert::success('Cambios guardados', 'El personal fue actualizado correctamente');
+
         return back();
 
     }
@@ -67,6 +76,8 @@ class PersonalController extends Controller
         $personal = Personal::findOrFail($id);
 
         $personal->delete();
+
+        Alert::success('Eliminado', 'El personal fue eliminado correctamente');
 
         return back();
     }

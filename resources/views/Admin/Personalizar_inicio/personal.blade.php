@@ -12,7 +12,7 @@
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
                         <h2 class="font-weight-bolder mb-0">Personalizar Personal</h2>
                         <div class="d-flex justify-content-center mt-4" style="order: 2;">
-                            <button type="submit" class="btn btn-success" onclick="CambiosRealizado()">Guardar cambios</button>
+                            <button type="submit" class="btn btn-success">Guardar cambios</button>
                         </div>
 
                     </div>
@@ -71,7 +71,7 @@
                                         width="100%">
                                 </div>
                                 
-                                <button type="submit" class="btn btn-success mt-4" onclick="MisionAgregada()">Agregar</button>
+                                <button type="submit" class="btn btn-success mt-4">Agregar</button>
                             </form>
 
                         </div>

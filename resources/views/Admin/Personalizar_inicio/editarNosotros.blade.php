@@ -38,7 +38,7 @@
                                 <label for="Titulo">Descripcion:</label>
                                 <textarea name="descripcionMision" class="form-control" type="text" rows="10" cols="50" required>{{$nosotros->descripcion}}</textarea>
 
-                                <button type="submit" class="btn btn-success mt-4" onclick="platilloActualizado()">Actualizar</button>
+                                <button type="submit" class="btn btn-success mt-4">Actualizar</button>
 
                             </div>
                         </div>

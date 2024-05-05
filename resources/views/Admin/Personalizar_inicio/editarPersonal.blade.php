@@ -56,7 +56,7 @@
                                     <img id="img" src="{{$personal->imagen}}" alt="Vista previa de la imagen" width="100%">
                                 </div>
 
-                                <button type="submit" class="btn btn-success mt-4" onclick="platilloActualizado()">Actualizar</button>
+                                <button type="submit" class="btn btn-success mt-4">Actualizar</button>
 
                             </div>
                         </div>

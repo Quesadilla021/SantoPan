@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservaciones;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ReservacionController extends Controller
 {
@@ -22,6 +23,8 @@ class ReservacionController extends Controller
         $reservacion->reciente = date("Y-m-d");
 
         $reservacion->save();
+
+        Alert::success('Reservacion enviada', 'Su solicitud fue enviada y sera contestada lo mas antes posible');
 
         return back();
 

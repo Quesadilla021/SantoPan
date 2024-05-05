@@ -33,6 +33,8 @@
 
 <body>
 
+  @include('sweetalert::alert')
+
   
   <style>
     #hero {
@@ -530,7 +532,7 @@
             <div class="error-message"></div>
             <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
           </div> --}}
-          <div class="text-center mt-4"><button type="submit" onclick="envioSolicitud()">Reservar Mesa</button></div>
+          <div class="text-center mt-4"><button type="submit">Reservar Mesa</button></div>
         </form>
 
       </div>

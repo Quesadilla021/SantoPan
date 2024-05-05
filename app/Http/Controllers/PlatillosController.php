@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Platillo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PlatillosController extends Controller
 {
@@ -25,6 +26,8 @@ class PlatillosController extends Controller
         }
 
         $platillos->save();
+
+        Alert::success('Agregado', 'El nuevo platillo fue agregado correctamente');
 
         return back();
 
@@ -55,6 +58,8 @@ class PlatillosController extends Controller
 
         $platillo->save();
 
+        Alert::success('Cambios guardados', 'El platillo fue actualizado correctamente');
+
         return redirect()->route('menu');
     }
 
@@ -64,6 +69,8 @@ class PlatillosController extends Controller
         Storage::delete('public/'.$platillo->imagen);
         
         $platillo->delete();
+
+        Alert::success('Eliminado', 'El platillo fue eliminado correctamente');
 
         return redirect()->route('menu');
 

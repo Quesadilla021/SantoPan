@@ -7,6 +7,7 @@ use App\Models\Inicio;
 use App\Models\Objetivo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ObjetivoController extends Controller
 {
@@ -14,6 +15,9 @@ class ObjetivoController extends Controller
         $objetivo = new Objetivo();
         $objetivo->objetivo = $request->objetivo;
         $objetivo->save();
+
+        Alert::success('Agregado', 'El objetivo fue agregado correctamente');
+
         return back();
     }
 
@@ -38,12 +42,16 @@ class ObjetivoController extends Controller
         $inicio->save();
         $imagenes->save();
 
+        Alert::success('Cambios guardados', 'El titulo e imagenes de objetivos fue actualizado correctamente');
+
         return back();  
     }
 
     function destroyObjetivo($id){
         $objetivo = Objetivo::findOrFail($id);
         $objetivo->delete();
+
+        Alert::success('Agregado', 'El objetivo fue eliminado correctamente');
 
         return back();
     }

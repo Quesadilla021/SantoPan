@@ -6,6 +6,7 @@ use App\Models\Galeria;
 use App\Models\Inicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GaleriaController extends Controller
 {
@@ -16,6 +17,8 @@ class GaleriaController extends Controller
         $inicio->tituloGaleria = $request->tituloGaleria;
 
         $inicio->save();
+
+        Alert::success('Cambios guardados', 'El titulo de galeria fue actualizado correctamente');
 
         return back();  
 
@@ -43,6 +46,9 @@ class GaleriaController extends Controller
         $img = Galeria::findOrFail($id);
 
         $img->delete();
+
+        Alert::success('Eliminado', 'La imagen fue eliminada correctamente');
+
 
         return back();
     }
