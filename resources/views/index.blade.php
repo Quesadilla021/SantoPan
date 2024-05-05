@@ -152,7 +152,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><img src="assets/img/logo2.png" alt=""></h1>
+      {{-- <h1 class="logo me-auto me-lg-0"><img src="assets/img/logo2.png" alt=""></h1> --}}
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -163,8 +163,10 @@
           <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#specials">Especialidades</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
+          <li><a class="nav-link scrollto" href="#zonas">Zonas</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Galeria</a></li>
+          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
+
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -424,7 +426,7 @@
     </section><!-- End Specials Section -->
 
 
-    <section id="gallery" class="gallery">
+    <section id="zonas" class="gallery">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
