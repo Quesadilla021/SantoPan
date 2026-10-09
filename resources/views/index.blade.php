@@ -99,9 +99,9 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+          <li><a class="nav-link scrollto active" href="#hero" data-en="Home">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#events">Noticias</a></li>
-          <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
+          <li><a class="nav-link scrollto" href="#about" data-en="About Us">Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="#specials">Buffet</a></li>
           <li><a class="nav-link scrollto" href="#zonas">Zonas</a></li>
@@ -872,6 +872,37 @@
       }
 
       var actual = idiomaActual();
+
+      if (actual !== 'es') {
+        // Evita que Google traduzca el nombre del negocio ("Santo Pan" -> "Holy Bread")
+        var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+        var nodos = [];
+        while (walker.nextNode()) {
+          if (/Santo Pan/.test(walker.currentNode.nodeValue)) nodos.push(walker.currentNode);
+        }
+        nodos.forEach(function (nodo) {
+          if (nodo.parentNode.closest('script, style, .notranslate')) return;
+          var frag = document.createDocumentFragment();
+          nodo.nodeValue.split(/(Santo Pan)/).forEach(function (parte) {
+            if (parte === 'Santo Pan') {
+              var span = document.createElement('span');
+              span.className = 'notranslate';
+              span.textContent = parte;
+              frag.appendChild(span);
+            } else if (parte) {
+              frag.appendChild(document.createTextNode(parte));
+            }
+          });
+          nodo.parentNode.replaceChild(frag, nodo);
+        });
+
+        // Traducciones fijas para textos que Google traduce mal
+        document.querySelectorAll('[data-' + actual + ']').forEach(function (el) {
+          el.textContent = el.getAttribute('data-' + actual);
+          el.classList.add('notranslate');
+        });
+      }
+
       document.querySelectorAll('[data-lang]').forEach(function (a) {
         if (a.hasAttribute('data-lang-toggle')) {
           var en = actual === 'en';
