@@ -1,0 +1,36 @@
+name: Deploy a Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Desplegar por SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script_stop: true
+          script: |
+            cd ~/domains/estacionsantopan.com
+            OLD_LOCK=$(git rev-parse HEAD:composer.lock 2>/dev/null || echo none)
+            git fetch origin main
+            git reset --hard origin/main
+            NEW_LOCK=$(git rev-parse HEAD:composer.lock)
+            if [ "$OLD_LOCK" != "$NEW_LOCK" ]; then
+              composer install --no-dev --optimize-autoloader --no-interaction
+            fi
+            php artisan config:clear
+            php artisan route:clear
+            php artisan view:clear
+            echo "Deploy OK: $(git log -1 --oneline)"
