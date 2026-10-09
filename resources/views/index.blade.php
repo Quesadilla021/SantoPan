@@ -126,7 +126,7 @@
           </li> --}}
           <li><a class="nav-link scrollto" href="#contact">Contactenos</a></li>
           <li class="d-md-none notranslate">
-            <a class="nav-link" href="#" data-lang="en" data-lang-toggle><i class="bi bi-translate me-2"></i>English</a>
+            <a class="nav-link" href="#" data-lang="en" data-lang-toggle><i class="bi bi-globe me-2"></i>English</a>
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -853,6 +853,7 @@
     body { top: 0 !important; }
     font[style], .goog-text-highlight { background: none !important; box-shadow: none !important; }
     #topbar .languages ul a.active { color: #cda45e; font-weight: 600; }
+    .navbar-mobile a[data-lang-toggle] { justify-content: flex-start; }
   </style>
   <script>
     (function () {
@@ -901,7 +902,7 @@
         if (a.hasAttribute('data-lang-toggle')) {
           var en = actual === 'en';
           a.setAttribute('data-lang', en ? 'es' : 'en');
-          a.innerHTML = '<i class="bi bi-translate me-2"></i>' + (en ? 'Español' : 'English');
+          a.innerHTML = '<i class="bi bi-globe me-2"></i>' + (en ? 'Español' : 'English');
         } else if (a.getAttribute('data-lang') === actual) {
           a.classList.add('active');
         }
