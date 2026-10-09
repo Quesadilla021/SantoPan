@@ -19,12 +19,6 @@ class PlatillosController extends Controller
         $platillos->id_categoria = $request->categoria;
         $platillos->dia = $request->dia;
 
-        if ($request->hasFile('imagenPlatillo')){
-            $img = $request->imagenPlatillo->store('imagenes', 'public');
-            $url = Storage::url($img);
-            $platillos->imagen = $url;
-        }
-
         $platillos->save();
 
         Alert::success('Agregado', 'El nuevo platillo fue agregado correctamente');
@@ -50,12 +44,6 @@ class PlatillosController extends Controller
         $platillo->id_categoria = $request->categoria;
         $platillo->dia = $request->dia;
 
-        if ($request->hasFile('imagenPlatillo')){
-            $img = $request->imagenPlatillo->store('imagenes', 'public');
-            $url = Storage::url($img);
-            $platillo->imagen = $url;
-        }
-
         $platillo->save();
 
         Alert::success('Cambios guardados', 'El platillo fue actualizado correctamente');
@@ -65,9 +53,7 @@ class PlatillosController extends Controller
 
     function destroyPlatillo($id){
         $platillo = Platillo::findOrFail($id);
-        
-        Storage::delete('public/'.$platillo->imagen);
-        
+                
         $platillo->delete();
 
         Alert::success('Eliminado', 'El platillo fue eliminado correctamente');

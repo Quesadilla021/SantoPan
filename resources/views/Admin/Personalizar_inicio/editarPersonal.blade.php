@@ -7,7 +7,7 @@
             <div class="col-lg-12 position-relative z-index-2">
                 <div class="card card-plain mb-4">
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
-                        <h2 class="font-weight-bolder mb-0">Editar Personal</h2>
+                        <h2 class="font-weight-bolder mb-0">Editar Colaborador</h2>
                         <div class="d-flex justify-content-center mt-4" style="order: 2;">
                             <a href="{{route('personal')}}" class="btn btn-secondary">Volver</a>
                         </div>
@@ -26,7 +26,7 @@
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Actualizar personal</h6>
+                                <h6 class="text-white text-capitalize ps-3">Actualizar Colaborador</h6>
                             </div>
                         </div>
 
@@ -35,9 +35,6 @@
                                 <label for="Titulo">Nombre</label>
                                 <input class="form-control" type="text" name="nombre" value="{{$personal->nombre}}" required>
 
-                                <label for="Detalles">Rol</label>
-                                <input class="form-control" type="text" name="rol" value="{{$personal->rol}}" required>
-                         
                                 <label for="Detalles">Facebook</label>
                                 <input class="form-control" type="text" name="facebook" value="{{$personal->facebook}}">
                                 

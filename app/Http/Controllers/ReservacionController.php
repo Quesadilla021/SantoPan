@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Reservaciones;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Mail\ReservacionRealizada;
+use Illuminate\Support\Facades\Mail;
 
 class ReservacionController extends Controller
 {
@@ -23,6 +25,10 @@ class ReservacionController extends Controller
         $reservacion->reciente = date("Y-m-d");
 
         $reservacion->save();
+
+        $data = Reservaciones::create($request->all());
+        // Enviar el correo 
+        Mail::to('ianques021@gmail.com')->send(new ReservacionRealizada($data));
 
         Alert::success('Reservacion enviada', 'Su solicitud fue enviada y sera contestada lo mas antes posible');
 

@@ -70,6 +70,15 @@ function EliminarCategoria(ev) {
         }
      })
     }
+    
+    function mostrarImagen(urlImagen) {
+        Swal.fire({
+        imageUrl: urlImagen,
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        })
+    }
 
     function confirmation(ev) {
     ev.preventDefault();

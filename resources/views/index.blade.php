@@ -1,13 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TZ7XQXKB');</script>
+<!-- End Google Tag Manager -->
+    
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Santo Pan | Cafeteria & Panaderia</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta name="description" content="Estación Santo Pan es uno de los mejores restaurantes en Turrialba. Ofrecemos pan artesanal, café y una experiencia única para quienes buscan dónde comer en Turrialba.">
+  <meta name="keywords" content="restaurante Turrialba, donde comer en Turrialba, los mejores restaurantes Turrialba, panadería Turrialba, comida artesanal Turrialba">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -32,6 +42,11 @@
 </head>
 
 <body>
+    
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZ7XQXKB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
   @include('sweetalert::alert')
 
@@ -52,87 +67,6 @@
       position: relative;
       padding: 80px 0;
     }
-
-    .btn-wsp{
-    position:fixed;
-    width:60px;
-    height:60px;
-    line-height: 63px;
-    bottom:25px;
-    left:25px;
-    background:#25d366;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:35px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-    z-index:100;
-    transition: all 300ms ease;
-}
-.btn-wsp:hover{
-    background: #20ba5a;
-}
-@media only screen and (min-width:320px) and (max-width:768px){
-    .btn-wsp{
-        width:63px;
-        height:63px;
-        line-height: 66px;
-	}
-}
-
-.btn-face{
-    position:fixed;
-    width:60px;
-    height:60px;
-    line-height: 63px;
-    bottom:95px;
-    left:25px;
-    background:#2576d3;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:35px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-    z-index:100;
-    transition: all 300ms ease;
-}
-.btn-face:hover{
-    background: #1d388f;
-}
-@media only screen and (min-width:320px) and (max-width:768px){
-    .btn-face{
-        width:63px;
-        height:63px;
-        line-height: 66px;
-	}
-}
-
-.btn-insta{
-    position:fixed;
-    width:60px;
-    height:60px;
-    line-height: 63px;
-    bottom:165px;
-    left:25px;
-    background:#dc34e2;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:35px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-    z-index:100;
-    transition: all 300ms ease;
-}
-.btn-insta:hover{
-    background: #5e1870;
-}
-@media only screen and (min-width:320px) and (max-width:768px){
-    .btn-insta{
-        width:63px;
-        height:63px;
-        line-height: 66px;
-	}
-}
 
   </style>
 
@@ -159,13 +93,12 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#events">Eventos</a></li>
+          <li><a class="nav-link scrollto" href="#events">Noticias</a></li>
           <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
-          <li><a class="nav-link scrollto" href="#specials">Especialidades</a></li>
+          <li><a class="nav-link scrollto" href="#specials">Buffet</a></li>
           <li><a class="nav-link scrollto" href="#zonas">Zonas</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Galeria</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Chefs</a></li>
 
           {{-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -230,7 +163,7 @@
         <div class="container" data-aos="fade-up">
   
           <div class="section-title">
-            <h2>Eventos</h2>
+            <h2>Noticias</h2>
             <p>{{$inicio->tituloEventos}}</p>
           </div>
   
@@ -241,12 +174,12 @@
               <div class="swiper-slide">
                 <div class="row event-item">
                   <div class="col-lg-6">
-                    <img src="{{$item->imagen}}" class="img-fluid" alt="" style="width: 650px; height: 450px;">
+                    <img src="{{$item->imagen}}" class="img-fluid" alt="" style="width: 650px; height: 380px;">
                   </div>
                   <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3>{{$item->nombre}}</h3>
                     <h4>{{$item->fecha}}</h4>
-                    <p class="fst-italic">
+                    <p class="fst-italic" style:"text-align: justify;">
                       {{$item->descripcion}}
                     </p>
                   </div>
@@ -331,7 +264,10 @@
             <ul id="menu-flters">
               <li data-filter="*" class="filter-active">Todos</li>
               @foreach ($categorias as $item)
-                <li data-filter=".filter-{{$item->nombre}}">{{$item->nombre}}</li>
+            @php
+              $nombreCate = str_replace(" ","", $item->nombre);
+            @endphp
+                <li data-filter=".filter-{{$nombreCate}}">{{$item->nombre}}</li>
               @endforeach
             </ul>
           </div>
@@ -339,9 +275,13 @@
 
         <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
 
-          @foreach ($platillos as $item)       
-            <div class="col-lg-6 menu-item filter-{{$item->categoria->nombre}}">
-              <img src="{{$item->imagen}}" class="menu-img" alt="">
+          @foreach ($platillos as $item)
+          
+         @php
+              $nombreCate = str_replace(" ","", $item->categoria->nombre);
+          @endphp
+          
+            <div class="menu-item filter-{{$nombreCate}}">
               <div class="menu-content">
                 <a href="#">{{$item->nombre}}</a><span>₡ {{number_format($item->precio, 0,',', '.')}}</span>
               </div>
@@ -362,18 +302,58 @@
     <section id="specials" class="specials">
       <div class="container" data-aos="fade-up">
 
-        @php
-            $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-
-            $diaActual = $dias[date("w")];
-
-            $primero = 'active show';
-            $primero2 = 'active show';
-        @endphp
-
         <div class="section-title">
-          <h2>Especialidades</h2>
-          <p>Especialidades para hoy {{$diaActual}}</p>
+          <h2>Buffet</h2>
+          <p>Presentamos nuestro Buffet los fin de semana</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+
+                <li class="nav-item">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Buffet - Desayunos</a>
+                </li>
+
+            </ul>
+          </div>
+
+
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+
+                  <div class="tab-pane active show" id="tab-1">
+                    <div class="row">
+                      <div class="col-lg-8 details order-2 order-lg-1">
+                            <h2>Buffet - Desayunos</h2>
+                            <p><strong>7am - 11am</strong></p>
+                            <p>¡Descubre la deliciosa experiencia matutina que te espera en el café y restaurante Santo Pan en Turrialba! Nuestro buffet de desayuno es un festín para los sentidos, donde cada bocado es un homenaje a la frescura y la calidad.</p>
+                            <p>Desde exquisitas frutas tropicales hasta pan recién horneado, pasando por una variedad de opciones saludables y tentadoras, nuestro buffet está diseñado para satisfacer todos los paladares y garantizar un comienzo perfecto para tu día.</p>
+                            <p>Sumérgete en un ambiente acogedor y disfruta de la combinación perfecta de sabores locales e internacionales, todo preparado con el amor y la pasión que nos distinguen en Santo Pan.</p>
+                            <p>¡Ven y únete a nosotros para una experiencia gastronómica que despertará tus sentidos y te dejará con ganas de más!</p>
+                            <p><strong>Sábados y Domingos</strong></p>
+                            <p><strong>7:00am - 11:30am</strong></p>
+                      </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2">
+                        <img src="/storage/imagenes/imgebuffet.webp" alt="" class="img-fluid" style="width: 300px; height: 420px;">
+                      </div>
+                    </div>
+                  </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+      
+          <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <p>Nuestra promocion de Baguette</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -383,14 +363,9 @@
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
 
-              @foreach ($platillos as $item)
-                @if ($item->dia == $diaActual)                  
                 <li class="nav-item">
-                  <a class="nav-link {{$primero2}}" data-bs-toggle="tab" href="#tab-{{$item->id_platillo}}">{{$item->nombre}}</a>
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Baguettes 3 x ₡900</a>
                 </li>
-                {{$primero2 = ''}}
-                @endif
-              @endforeach
 
             </ul>
           </div>
@@ -399,30 +374,204 @@
           <div class="col-lg-9 mt-4 mt-lg-0">
             <div class="tab-content">
 
-              @foreach ($platillos as $item)
-                  @if ($item->dia == $diaActual)
-                  <div class="tab-pane {{$primero}}" id="tab-{{$item->id_platillo}}">
+                  <div class="tab-pane active show" id="tab-1">
                     <div class="row">
                       <div class="col-lg-8 details order-2 order-lg-1">
-                        <h3>{{$item->nombre}} - ₡ {{number_format($item->precio, 0,',', '.')}}</h3>
-                        <h5>{{$item->categoria->nombre}}</h5>
-                        <p class="fst-italic">{{$item->detalles}}</p>
+                        <h3>Baguettes 3 x ₡900</h3>
+                                <p>Disfruta de la mejor baguette en Turrialba</p>
+                                <p>En Santo Pan, estamos orgullosos de ofrecerte una promoción imperdible: <strong>¡Tres baguettes por solo ₡900!</strong> Desde 1926, nos dedicamos a elaborar pan fresco de la más alta calidad, utilizando ingredientes selectos y recetas tradicionales.</p>
+                            
+                                <h3>¿Por qué elegir nuestras baguettes?</h3>
+                                <ul>
+                                  <li><strong>Frescura garantizada</strong>: Pan recién horneado todos los días.</li>
+                                  <li><strong>Calidad superior</strong>: Elaborado con los mejores ingredientes.</li>
+                                  <li><strong>Tradición y sabor</strong>: Más de 90 años de experiencia en panadería.</li>
+                                </ul>
+                            
+                                <p>Visítanos hoy y aprovecha esta oferta especial</p>
+                                <p>Ubicados en el corazón de Turrialba, te invitamos a disfrutar de nuestras deliciosas baguettes y muchos otros productos artesanales. No te pierdas esta promoción y haz que tus comidas sean aún más especiales con Santo Pan.</p>
                       </div>
                       <div class="col-lg-4 text-center order-1 order-lg-2">
-                        <img src="{{$item->imagen}}" alt="" class="img-fluid" style="width: 300px; height: 250px;">
+                        <img src="/storage/imagenes/PromoBaguette.webp" alt="" class="img-fluid" style="width: 300px; height: 420px;">
                       </div>
                     </div>
                   </div>
 
-                  {{$primero = ''}}
-                  @endif
-              @endforeach
 
             </div>
           </div>
         </div>
 
       </div>
+      
+    </section><!-- End Specials Section -->
+
+
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <p>Nueva Zona</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+
+
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+
+                <li class="nav-item">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Zona del Tren</a>
+                </li>
+
+            </ul>
+          </div>
+
+
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+
+                  <div class="tab-pane active show" id="tab-1">
+                    <div class="row">
+                      <div class="col-lg-8 details order-2 order-lg-1">
+                        <h3><strong>Nueva Zona en el Tren de Santo Pan</strong></h3>
+                        <p>Descubre nuestra <strong>nueva zona</strong> en Santo Pan, ubicada en un <strong>icónico vagón de tren</strong>, donde la historia y la calidez se combinan para ofrecerte una <strong>experiencia única</strong>.</p>
+                        <p>Capturado con <strong>tomas aéreas impresionantes</strong>, este video muestra el encanto de nuestro nuevo espacio, ideal para disfrutar <strong>momentos especiales</strong> con amigos y familia.</p>
+                        <p>Agradecemos a <strong>Diego Flores Mora</strong> por la increíble toma con dron que nos permite presentar esta experiencia desde una perspectiva única.  
+                        ¡<strong>Te esperamos</strong> para que lo vivas en persona!</p>
+                      </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2">
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/558171140517295" data-show-text="false" style="width: 300px; height: 420px;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </section><!-- End Specials Section -->
+
+
+        <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <p>Una visita muy especial en Santo Pan</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+
+
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+
+                <li class="nav-item">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Visitas especiales</a>
+                </li>
+
+            </ul>
+          </div>
+
+
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+
+                  <div class="tab-pane active show" id="tab-1">
+                    <div class="row">
+                      <div class="col-lg-8 details order-2 order-lg-1">
+                        <h3><strong>Invitado especial: Édgar Silva en Santo Pan</strong></h3>
+                          <p>
+                            En <strong>Santo Pan</strong> tuvimos el honor de recibir a una de las figuras más queridas de la televisión costarricense: 
+                            <strong>Édgar Silva</strong>. Con más de <strong>30 años de trayectoria</strong> en medios de comunicación, Édgar se ha ganado el cariño de todo un país gracias a su 
+                            <strong>carisma</strong>, <strong>profesionalismo</strong> y cercanía con la gente.
+                          </p>
+                          <p>
+                            Durante su visita, compartió con nosotros su <strong>calidez</strong> y <strong>sencillez</strong>, disfrutando de nuestra 
+                            <strong>panadería artesanal</strong> y el sabor auténtico que nos caracteriza. Fue un momento especial que nos recordó por qué hacemos lo que hacemos: 
+                            crear espacios donde las <strong>buenas historias</strong> se encuentran con un <strong>buen pan</strong>.
+                          </p>
+                          <p>
+                            <em>¡Gracias, Édgar, por tu visita y por llevar siempre lo mejor de Costa Rica a cada rincón del país!</em>
+                          </p>
+                      </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2">
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/1073059400330280" data-show-text="false" style="width: 300px; height: 420px;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </section><!-- End Specials Section -->
+    
+    
+    
+       </section><!-- End Specials Section -->
+
+
+        <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <p>Una visita muy especial en Santo Pan</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+
+
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+
+                <li class="nav-item">
+                  <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">deliciosa Paella</a>
+                </li>
+
+            </ul>
+          </div>
+
+
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+
+                  <div class="tab-pane active show" id="tab-1">
+                    <div class="row">
+                      <div class="col-lg-8 details order-2 order-lg-1">
+                        <h3><strong>Un platillo Espectacular</strong></h3>
+                              <p>
+                                En <strong>Santo Pan</strong> te traemos un nuevo sabor que no te podés perder: nuestras <strong>paellas artesanales</strong>, preparadas con ingredientes frescos, mucho cariño y ese toque único que nos distingue.
+                              </p>
+                              <p>
+                                Disfrutá este <strong>plato español lleno de sabor</strong> en el mejor ambiente de la <strong>zona del tren</strong>. Ideal para compartir con amigos, en familia o simplemente darte un gusto como te lo merecés.
+                              </p>
+                              <p>
+                                <strong>¡Reservá tu mesa hoy mismo!</strong> Llamanos o escribinos al <strong>2556-4343</strong> y asegurá tu espacio para disfrutar una experiencia gastronómica inolvidable.
+                              </p>
+                              <p>
+                                <em>El arroz perfecto, el sazón auténtico… la paella como debe ser, solo en Santo Pan.</em>
+                              </p>
+                      </div>
+                      <div class="col-lg-4 text-center order-1 order-lg-2">
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/1442110750138300" data-show-text="false" style="width: 300px; height: 420px;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
     </section><!-- End Specials Section -->
 
 
@@ -569,43 +718,6 @@
       </div>
     </section><!-- End Gallery Section -->
 
-    <!-- ======= Chefs Section ======= -->
-    <section id="chefs" class="chefs">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Chefs</h2>
-          <p>{{$inicio->tituloPersonal}}</p>
-        </div>
-
-        <div class="row">
-
-          @foreach ($personal as $item)    
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="{{$item->imagen}}" class="img-fluid" alt="" style="width: 736px; height: 380px;">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>{{$item->nombre}}</h4>
-                  <span>{{$item->rol}}</span>
-                </div>
-                <div class="social">
-                  <a href="{{$item->facebook}}"><i class="bi bi-facebook"></i></a>
-                  <a href="{{$item->instagram}}"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          @endforeach
-
-
-        </div>
-
-      </div>
-    </section><!-- End Chefs Section -->
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
@@ -705,7 +817,7 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  {{-- <script src="assets/vendor/php-email-form/validate.js"></script> --}}
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v19.0" nonce="xyz"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

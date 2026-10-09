@@ -71,7 +71,7 @@
                                 <div class="mt-3">
                                     <label for="email">Imagen</label>
                                     <input class="form-control" name="imagenPlatillo" type="file" id="imageInput"
-                                        accept="image/*" onchange="previewImage(event, 'img', 'containerImg')">
+                                        accept="image/png, image/gif, image/jpeg" onchange="previewImage(event, 'img', 'containerImg')">
                                 </div>
 
                                 <div id="containerImg">

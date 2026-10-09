@@ -10,7 +10,7 @@
             <div class="col-lg-12 position-relative z-index-2">
                 <div class="card card-plain mb-4">
                     <div class="card-body p-3" style="display: flex; justify-content: space-between; align-items: center;">
-                        <h2 class="font-weight-bolder mb-0">Personalizar Personal</h2>
+                        <h2 class="font-weight-bolder mb-0">Personalizar Colaboradores</h2>
                         <div class="d-flex justify-content-center mt-4" style="order: 2;">
                             <button type="submit" class="btn btn-success">Guardar cambios</button>
                         </div>
@@ -26,12 +26,12 @@
                 <div class="card">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Seccion Personal</h6>
+                            <h6 class="text-white text-capitalize ps-3">Seccion Colaborador</h6>
                         </div>
                     </div>
 
                     <div class="card-header p-3 pt-2">
-                            <label for="Titulo">Titulo Personal:</label>
+                            <label for="Titulo">Titulo Colaboradores:</label>
                             <input class="form-control" type="text" name="tituloPersonal" value="{{$inicio->tituloPersonal}}">
                             <hr>
                         </form>
@@ -45,11 +45,6 @@
                                     <input class="form-control" type="text" name="nombrePersonal" required>
                                 </div>
         
-                                <div class="container mt-3" >
-                                    <label for="Titulo">Rol de la persona</label>
-                                    <input class="form-control" type="text" name="rolPersonal" required>
-                                </div>
-
                                 <div class="container mt-3" >
                                     <label for="Titulo">Faceboock</label>
                                     <input class="form-control" type="text" name="facePersonal">
@@ -98,9 +93,6 @@
                                             Personal</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            rol</th>    
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Acciones</th>
 
                                     </tr>
@@ -111,12 +103,6 @@
                                         <td>
                                             <div class="align-middle text-center text-sm">
                                                 <h6 class="mb-0 text-sm">{{$item->nombre}}</h6>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="align-middle text-center text-sm">
-                                                <h6 class="mb-0 text-sm">{{$item->rol}}</h6>
                                             </div>
                                         </td>
 

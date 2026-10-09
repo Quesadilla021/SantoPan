@@ -12,6 +12,7 @@ use App\Http\Controllers\PlatillosController;
 use App\Http\Controllers\ReservacionController;
 use App\Http\Controllers\UbicacionController;
 use App\Models\Ubicacion;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/',[pagesController::class, 'index'])->name('inicio');
+
+
+////////Ruta por si no me carga las imagenes en el hosting, borrar carpeta de storage en public si fuera necesario y volve a intentar////////////
+Route::get('/linkstorage', function () { $targetFolder = base_path().'/storage/app/public'; $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage'; symlink($targetFolder, $linkFolder); });
+
 
 //////Admin/////
 Route::get('/reservaciones',[pagesController::class, 'indexReservaciones'])->name('reservaciones');

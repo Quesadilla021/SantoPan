@@ -75,16 +75,6 @@
 
                                 <hr>
 
-                                <div class="mt-3">
-                                    <label for="email">Imagen</label>
-                                    <input class="form-control" name="imagenPlatillo" type="file" id="imageInput"
-                                        accept="image/*" onchange="previewImage(event, 'img', 'containerImg')" required>
-                                </div>
-
-                                <div id="containerImg">
-                                    <img id="img" src="/assets/img/ejemploImagen.jpg" alt="Vista previa de la imagen" width="100%">
-                                </div>
-
                                 <button type="submit" class="btn btn-success mt-4">Agregar</button>
 
                             </div>

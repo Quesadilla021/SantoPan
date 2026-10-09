@@ -134,10 +134,10 @@
                     <a class="dropdown-item nav-link text-white " href="{{route('objetivos')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-layer-group"></i>
+                            <i class="fa-regular fa-circle-check"></i>
                         </div>
 
-                        <span class="nav-link-text ms-1">Seccion Objetivos</span>
+                        <span class="nav-link-text ms-1">Objetivos</span>
                     </a>
                 </li>
 
@@ -145,10 +145,10 @@
                     <a class="dropdown-item nav-link text-white " href="{{route('nosotros')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-layer-group"></i>
+                            <i class="fa-solid fa-people-group"></i>
                         </div>
 
-                        <span class="nav-link-text ms-1">Seccion Nosotros</span>
+                        <span class="nav-link-text ms-1">Nosotros</span>
                     </a>
                 </li>
 
@@ -156,32 +156,22 @@
                     <a class="dropdown-item nav-link text-white " href="{{route('eventos')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-layer-group"></i>
+                            <i class="fa-solid fa-globe"></i>
                         </div>
 
-                        <span class="nav-link-text ms-1">Seccion Eventos</span>
+                        <span class="nav-link-text ms-1">Eventos</span>
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="dropdown-item nav-link text-white " href="{{route('personal')}}">
-
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-layer-group"></i>
-                        </div>
-
-                        <span class="nav-link-text ms-1">Seccion Personal</span>
-                    </a>
-                </li>
                 
                 <li class="nav-item">
                     <a class="dropdown-item nav-link text-white " href="{{route('galeria')}}">
 
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-layer-group"></i>
+                            <i class="fa-solid fa-images"></i>
                         </div>
 
-                        <span class="nav-link-text ms-1">Seccion Galeria</span>
+                        <span class="nav-link-text ms-1">Galeria</span>
                     </a>
                 </li>
 

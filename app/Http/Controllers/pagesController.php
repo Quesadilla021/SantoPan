@@ -25,7 +25,7 @@ class pagesController extends Controller
         $nosotros = Nosotros::all();
         $platillos = Platillo::all();
         $categorias = Categoria::all();
-        $eventos = Evento::all();
+        $eventos = Evento::orderBy('id_evento', 'desc')->get();
         $personal = Personal::all();
         $galeria = Galeria::all();
         $ubicaciones = Ubicacion::all();
