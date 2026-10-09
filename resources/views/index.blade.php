@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     
@@ -78,7 +78,14 @@
           <i class="bi bi-phone d-flex align-items-center"><span>{{$inicio->telefono}}</span></i>
           <i class="bi bi-clock d-flex align-items-center ms-4"><span>{{$inicio->horario}}</span></i>
         </div>
-  
+
+        <div class="languages notranslate d-none d-md-flex align-items-center">
+          <ul>
+            <li><a href="#" data-lang="es">ES</a></li>
+            <li><a href="#" data-lang="en">EN</a></li>
+          </ul>
+        </div>
+
       </div>
     </div>
 
@@ -118,6 +125,9 @@
             </ul>
           </li> --}}
           <li><a class="nav-link scrollto" href="#contact">Contactenos</a></li>
+          <li class="d-md-none notranslate">
+            <a class="nav-link" href="#" data-lang="en" data-lang-toggle><i class="bi bi-translate me-2"></i>English</a>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -835,6 +845,58 @@
     )
     }
   </script>
+
+  <!-- Traduccion automatica ES / EN (Google Translate) -->
+  <div id="google_translate_element" style="display:none"></div>
+  <style>
+    iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+    body { top: 0 !important; }
+    font[style], .goog-text-highlight { background: none !important; box-shadow: none !important; }
+    #topbar .languages ul a.active { color: #cda45e; font-weight: 600; }
+  </style>
+  <script>
+    (function () {
+      function idiomaActual() {
+        var m = document.cookie.match(/(?:^|;\s*)googtrans=\/es\/(\w+)/);
+        return m ? m[1] : 'es';
+      }
+
+      function cambiarIdioma(lang) {
+        var dominio = location.hostname.replace(/^www\./, '');
+        var expira = lang === 'es' ? '; expires=Thu, 01 Jan 1970 00:00:00 GMT' : '';
+        var valor = lang === 'es' ? '' : '/es/' + lang;
+        ['', '; domain=' + dominio, '; domain=.' + dominio].forEach(function (d) {
+          document.cookie = 'googtrans=' + valor + '; path=/' + d + expira;
+        });
+        location.reload();
+      }
+
+      var actual = idiomaActual();
+      document.querySelectorAll('[data-lang]').forEach(function (a) {
+        if (a.hasAttribute('data-lang-toggle')) {
+          var en = actual === 'en';
+          a.setAttribute('data-lang', en ? 'es' : 'en');
+          a.innerHTML = '<i class="bi bi-translate me-2"></i>' + (en ? 'Español' : 'English');
+        } else if (a.getAttribute('data-lang') === actual) {
+          a.classList.add('active');
+        }
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var lang = a.getAttribute('data-lang');
+          if (lang !== actual) cambiarIdioma(lang);
+        });
+      });
+
+      window.googleTranslateElementInit = function () {
+        new google.translate.TranslateElement({
+          pageLanguage: 'es',
+          includedLanguages: 'en',
+          autoDisplay: false
+        }, 'google_translate_element');
+      };
+    })();
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 
