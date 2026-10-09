@@ -874,27 +874,21 @@
       var actual = idiomaActual();
 
       if (actual !== 'es') {
-        // Evita que Google traduzca el nombre del negocio ("Santo Pan" -> "Holy Bread")
-        var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
-        var nodos = [];
-        while (walker.nextNode()) {
-          if (/Santo Pan/.test(walker.currentNode.nodeValue)) nodos.push(walker.currentNode);
-        }
-        nodos.forEach(function (nodo) {
-          if (nodo.parentNode.closest('script, style, .notranslate')) return;
-          var frag = document.createDocumentFragment();
-          nodo.nodeValue.split(/(Santo Pan)/).forEach(function (parte) {
-            if (parte === 'Santo Pan') {
-              var span = document.createElement('span');
-              span.className = 'notranslate';
-              span.textContent = parte;
-              frag.appendChild(span);
-            } else if (parte) {
-              frag.appendChild(document.createTextNode(parte));
-            }
+        // Google a veces traduce el nombre del negocio ("Santo Pan" -> "Holy Bread"); se corrige al vuelo
+        var nombreMal = /\b(Holy|Saint) Bread\b/gi;
+        var corregirNombre = function (raiz) {
+          var walker = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, null);
+          while (walker.nextNode()) {
+            var n = walker.currentNode;
+            if (nombreMal.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(nombreMal, 'Santo Pan');
+            nombreMal.lastIndex = 0;
+          }
+        };
+        new MutationObserver(function (cambios) {
+          cambios.forEach(function (c) {
+            corregirNombre(c.type === 'characterData' ? c.target.parentNode || document.body : c.target);
           });
-          nodo.parentNode.replaceChild(frag, nodo);
-        });
+        }).observe(document.body, { childList: true, characterData: true, subtree: true });
 
         // Traducciones fijas para textos que Google traduce mal
         document.querySelectorAll('[data-' + actual + ']').forEach(function (el) {
