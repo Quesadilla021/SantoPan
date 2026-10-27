@@ -35,7 +35,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css?v=2" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -935,6 +935,25 @@
     })();
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    // Reacomoda el menu cuando cambia la altura de un platillo (traduccion, fuentes, rotar pantalla)
+    (function () {
+      var contenedor = document.querySelector('.menu-container');
+      if (!contenedor || !window.ResizeObserver) return;
+      var espera;
+      var observador = new ResizeObserver(function () {
+        clearTimeout(espera);
+        espera = setTimeout(function () {
+          var iso = window.Isotope && Isotope.data(contenedor);
+          if (iso) iso.layout();
+        }, 150);
+      });
+      contenedor.querySelectorAll('.menu-item').forEach(function (item) {
+        observador.observe(item);
+      });
+    })();
+  </script>
 
 </body>
 

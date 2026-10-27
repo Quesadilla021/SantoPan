@@ -959,6 +959,29 @@ section {
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* Precio siempre en una sola linea y alineado a la derecha */
+.menu .menu-content a {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.menu .menu-content span {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+@media (max-width: 767px) {
+  .menu .menu-item {
+    margin-top: 30px;
+  }
+
+  .menu .menu-content,
+  .menu .menu-ingredients {
+    margin-left: 0;
+  }
+}
+
 /*--------------------------------------------------------------
 # Specials
 --------------------------------------------------------------*/
