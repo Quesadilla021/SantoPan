@@ -97,6 +97,8 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
+      <a href="#" class="lang-pill notranslate d-md-none me-auto" data-lang="en" data-lang-toggle="corto"><i class="bi bi-globe me-1"></i>EN</a>
+
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero" data-en="Home">Inicio</a></li>
@@ -854,6 +856,12 @@
     font[style], .goog-text-highlight { background: none !important; box-shadow: none !important; }
     #topbar .languages ul a.active { color: #cda45e; font-weight: 600; }
     .navbar-mobile a[data-lang-toggle] { justify-content: flex-start; }
+    .lang-pill {
+      display: inline-flex; align-items: center;
+      padding: 4px 12px; border: 2px solid #cda45e; border-radius: 50px;
+      color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 1px;
+    }
+    .lang-pill:hover, .lang-pill:focus { background: #cda45e; color: #fff; }
   </style>
   <script>
     (function () {
@@ -902,7 +910,11 @@
         if (a.hasAttribute('data-lang-toggle')) {
           var en = actual === 'en';
           a.setAttribute('data-lang', en ? 'es' : 'en');
-          a.innerHTML = '<i class="bi bi-globe me-2"></i>' + (en ? 'Español' : 'English');
+          if (a.getAttribute('data-lang-toggle') === 'corto') {
+            a.innerHTML = '<i class="bi bi-globe me-1"></i>' + (en ? 'ES' : 'EN');
+          } else {
+            a.innerHTML = '<i class="bi bi-globe me-2"></i>' + (en ? 'Español' : 'English');
+          }
         } else if (a.getAttribute('data-lang') === actual) {
           a.classList.add('active');
         }
